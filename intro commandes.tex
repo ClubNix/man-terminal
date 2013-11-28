@@ -1,0 +1,172 @@
+\documentclass[french, a4paper, 12pt, titlepage]{article}
+%% Peut remplacer "article" par "scrartcl" %%
+
+\usepackage{a4wide}
+%\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\raggedbottom % prevents vertical white space on pages that cannot be filled properly
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,       	% false: boxed links; true: colored links
+	linkcolor=black,          	% color of internal links
+	urlcolor=blue,           	% color of external links
+	citecolor=grey
+}
+
+\usepackage[T1]{fontenc}
+%\usepackage{fourier}
+%\usepackage{utopia}
+%\usepackage{palatino}
+
+\usepackage{lmodern}
+%% ajouter fonte petite capitale grasse à lmodern avec celle de computer modern %%
+\rmfamily
+\DeclareFontShape{T1}{lmr}{b}{sc}{<->ssub*cmr/bx/sc}{}
+\DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*cmr/bx/sc}{}
+%% /ajout %%
+\usepackage{wrapfig}
+
+%\usepackage[a4paper]{geometry} % marges plus petites que a4paper standard
+\usepackage{listings} % insérer code source
+\usepackage{algorithm} % algorithmique
+\usepackage{algorithmic}
+\usepackage{url}
+\usepackage[usenames, dvipsnames]{color} % couleurs (nombre de base étendu)
+\usepackage{graphicx} % insérer images
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multicol}
+\definecolor{grey}{rgb}{0.96,0.96,0.96}
+\definecolor{grey2}{rgb}{0.3,0.3,0.3}
+
+%% Define listings params %%
+\lstset{
+	numbers=left,
+	language=Java,
+	tabsize=4,
+	frame=single, % cadre autour du code
+	breaklines=true, % autorise couper ligne trop longue
+	basicstyle=\small\ttfamily,
+	numberstyle=\scriptsize\ttfamily,
+	backgroundcolor=\color{grey},
+	showstringspaces=false,
+	keywordstyle=\color{OliveGreen},
+	stringstyle=\color{BrickRed},
+	commentstyle=\color{grey2}\it,
+	stepnumber=1
+} % numérote toute les x lignes
+% listing utf8 fr %
+\lstset{%
+	inputencoding=utf8,
+	extendedchars=true,
+	literate=
+		{é}{{\'{e}}}1
+		{è}{{\`{e}}}1
+		{ê}{{\^{e}}}1
+		{ë}{{\¨{e}}}1
+		{û}{{\^{u}}}1
+		{ù}{{\`{u}}}1
+		{â}{{\^{a}}}1
+		{à}{{\`{a}}}1
+		{î}{{\^{i}}}1
+		{ç}{{\c{c}}}1
+		{Ç}{{\c{C}}}1
+		{É}{{\'{E}}}1
+		{Ê}{{\^{E}}}1
+		{À}{{\`{A}}}1
+		{Â}{{\^{A}}}1
+		{Î}{{\^{I}}}1
+}
+%% /Define listings params %%
+
+%% Francisation des algorithmes
+\renewcommand{\algorithmicrequire} {\textbf{\textsc{Entrées:}}}
+\renewcommand{\algorithmicensure}  {\textbf{\textsc{Sorties:}}}
+\renewcommand{\algorithmicwhile}   {\textbf{tant que}}
+\renewcommand{\algorithmicdo}      {\textbf{faire}}
+\renewcommand{\algorithmicendwhile}{\textbf{fin tant que}}
+\renewcommand{\algorithmicend}     {\textbf{fin}}
+\renewcommand{\algorithmicif}      {\textbf{si}}
+\renewcommand{\algorithmicendif}   {\textbf{fin si}}
+\renewcommand{\algorithmicelse}    {\textbf{sinon}}
+\renewcommand{\algorithmicthen}    {\textbf{alors}}
+\renewcommand{\algorithmicfor}     {\textbf{pour}}
+\renewcommand{\algorithmicforall}  {\textbf{pour tout}}
+\renewcommand{\algorithmicdo}      {\textbf{faire}}
+\renewcommand{\algorithmicendfor}  {\textbf{fin pour}}
+\renewcommand{\algorithmicloop}    {\textbf{boucler}}
+\renewcommand{\algorithmicendloop} {\textbf{fin boucle}}
+\renewcommand{\algorithmicrepeat}  {\textbf{répéter}}
+\renewcommand{\algorithmicuntil}   {\textbf{jusqu'à}}
+\renewcommand{\algorithmiccomment} {\STATE //}
+\newcommand{\BEGIN}{\STATE \fbox{Début}}
+\newcommand{\END}{\STATE \fbox{Fin}}
+\floatname{algorithm}{Algorithme}
+%% /francisation des algorithmes
+
+\renewcommand{\qedsymbol}{}
+
+\newcommand{\petit}[1]{
+	\medskip \noindent
+	\begin{small}
+	#1)
+	\end{small}
+}
+
+\begin{document}
+
+\title{Introduction aux commandes shell (Linux) basique}
+\author{Club*Nix}
+\date{Compilé le \today}
+
+\maketitle
+%% Laisse page blanche pour verso page de garde %%
+
+\vfill
+\pagebreak
+
+%\tableofcontents
+\newpage
+\strut\thispagestyle{empty}
+\vfill
+\pagebreak
+\tableofcontents
+\strut\thispagestyle{empty}
+%\setcounter{page}{0}
+\newpage
+\setcounter{page}{1}
+
+\section{Presentation d'un environnement linux}
+TODO: historique linux
+-> annecdote linus et pinguin
+
+\section{Qu'est-ce que le shell}
+(photo coquillage)
+
+\section{Commandes Basique (débutant)}
+\subsection{Liste de commandes}
+\begin{description}
+\item[cd] \emph{\textbf{c}hange \textbf{d}irectory} permet de naviguer à travers les répertoires
+\item[ls] \emph{\textbf{l}i\textbf{s}t directory contents} permet d'afficher le contenu d'un répertoire
+\item[cat] \emph{con\textbf{cat}enate files} affiche un fichier sur l'entrée standard
+\item[./<exec>] lance le script/programme \emph{<exec>}
+\item[cp] \emph{\textbf{c}o\textbf{p}y files} copie un fichier
+\item[mv] \emph{\textbf{m}o\textbf{v}e file} déplace un fichier
+\item[man] \emph{reference \textbf{man}uals} affiche un manuel sur une commande, fonction, bibliothèque (essayez "man man")
+\end{description}
+
+\section{Liste de commande étendue (intermédiaire)}
+tube, redirection de flux, regexp simple, logiciel sympa (tmux, mocp, lua/bash/python), make/gcc, du, df, touch, find/locate, chmod, chown, kill, nano, tar, wget,
+
+\section{Regexp (expert)}
+regexp compliqué, un peu de réseaux? services, mount, ncdu, halt/reboot, find, ps, awk, sed, ssh, git?, usermod/groupmod, ifconfig
+dossier de base (/etc/, /var/, /home/, /mnt/)
+
+\section{Une interface graphique c'est bien aussi}
+lolwoot, y'a vraiment des gens qui font des apt-get install? 
+
+\end{document}
