@@ -1,0 +1,20 @@
+\subsection{cd}
+\subsubsection{Description}
+\emph{cd} permet de naviguer a travers l'arborescence des dossiers.
+En plus de pouvoir se déplacer dans un fichier, cette commande accepte plusieurs caractères spéciaux.
+En essayant de se déplacer dans le dossier "..", la commande permet de revenir au dossier précédent.
+Il aussi est possible de revenir directement à la racine de ses fichiers, sa "home" à l'aide du caractère "\~", à noter qu'omettre un nom de dossier à la même conséquence.
+
+La commande cd accepte des chemins \emph{absolus}, "/home/nepta/Poly\ Linux/", mais aussi des chemins \emph{relatifs}, "Poly\ Linux" permettant de se déplacer en fonction du dossier courant.
+
+Certain caractère, notamment le caractère espace (" ") doivent être \emph{échapper} afin d'être pris en compte, pour cela le caratère "\" est utilisé ("Poly Linux" devient "Poly\ Linux",
+"Chaton\\Chat\\Tigre" devient "Chaton\\\\Chat\\\\Tigre")
+
+\subsubsection{Exemples d'utilisations}
+
+\begin{lstlisting}
+~/$ cd Poly\ Linux
+~/Poly Linux/$ cd Chaton/Petit\ Chat/
+~/Poly Linux/Chaton/Petit Chat/$ cd
+~/ $ 
+\end{lstlisting}
