@@ -1,0 +1,21 @@
+\subsection{Cat}
+\subsubsection{Description}
+\emph{Cat} est une commande permettant d'afficher du texte sur l'entrée standard.
+Elle prend en entrée un fichier: texte, code source, script... pour l'afficher directement sur le terminal.
+Attention toutefois, en l'utilisant sur un fichier binaire, la commande s'exécutera et en essayant d'afficher le contenu du fichier souvent trop gros pour votre terminal, et un fichier binaire correspondant a une suite aléatoire de caractère ascii, cassera l'affichage de celui ci.
+Si par inadvertance cela vous arrivait, vous pouvez toujours essayer de taper "reset" pour rétablir votre shell (pas d'inquiétude si vous ne voyez rien, la commande est quand même écrite correctement).
+
+\subsubsection{Exemple d'utilisation}
+
+\begin{lstlisting}
+$ls
+chaton.txt chat.c poulpe.exe
+$cat chat.c
+#include <stdio.h>
+
+int main(){
+	printf("oh, un çhat!");
+ return 0;
+}
+$
+\end{lstlisting}
