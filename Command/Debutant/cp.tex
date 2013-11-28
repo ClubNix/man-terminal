@@ -1,0 +1,30 @@
+\subsection{cp}
+\subsubsection{Description}
+\emph{cp} est une commande permettant de copier des fichier.
+Cette commande prend en paramètres deux nom de fichier, le premier est le fichier \emph{source}, fichier qui doit être copié, le second, la destination qui est soit un dossier auquel cas le nom de fichier sera préservé, soit un chemin vers un fichier (qui sera écraser si il existe déjà).\\
+Afin de copier tout un dossier, le mode récursif de \emph{cp} est utilisé, pour cela l'on ajoute le modificateur de commande "-r" qui permettra la copie de tous les répertoire, sous répertoire et fichier contenu depuis la source jusqu'à la destination.
+Sans se modificateur, la commande cp ometra la copie de dossier.
+
+\subsubsection{Exemples d'utilisations}
+
+\begin{lstlisting}[caption=copie de fichier]
+~/$ ls
+miaou.txt chat.c poulpe.exe
+~/$ cp miaou.txt chaton.txt
+~/$ ls
+miaou.txt chaton.txt chat.c poulpe.exe
+~/$
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash,caption=copie de dossier]
+~/$ ls
+Chaton/
+~/$ ls Chaton/
+miaou.txt chat.c poulpe.exe
+~/$ cp -r Chaton/ Miaou/
+~/$ ls
+Chaton/ Miaou/
+~/$ ls Miaou/
+miaou.txt chat.c poulpe.exe
+~/$
+\end{lstlisting}
