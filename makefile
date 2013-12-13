@@ -2,7 +2,7 @@ pdf : intro\ commandes.tex intro\ commandes.toc
 	pdflatex intro\ commandes.tex
 	make clean
 
-intro\ commandes.toc :
+intro\ commandes.toc : intro\ commandes.tex
 	pdflatex intro\ commandes.tex
 
 clean :
