@@ -1,9 +1,34 @@
-\subsection*{•}
+\subsection*{grep}
 \subsubsection*{Description}
-\emph{•}
+\emph{grep}, pour \emph{\textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint} est une des commandes les plus utile qui soit.
+Elle permet en effet d'effectuer des recherche dans un document selon un certain \emph{pattern}, c'est a dire la recherche d'une expression quelconque (mot se finissant par -ou, commençant par mia- contenant...).
+
+En plus de pouvoir faire ces recherches dans les documents, grep peut aussi en faire sur l'entrée standard, et son utilité en deviens accru en la chaînant aux autres commande à l'aide d'une pipe ("|"), permettant de filtrer une sortie pour mettre en évidence les données utile.
+
+Il existe une multitude d'option pour cette commande, nous ne retiendrons que les principales:
+\begin{itemize}
+\item[-n] permet d'afficher la ligne et le fichier dans lequel l'expression à été trouvé
+\item[-i] désactive la sensibilité à la casse (les lettre majuscule et minuscule sont traité indifféremment)
+\item[-A|B|C] permet de conserver plus d'une ligne avant/après l'expression
+	\begin{itemize}
+		\item[-A\emph{X}] garde X lignes \textbf{après} l'expression
+		\item[-B\emph{X}] garde X lignes \textbf{avant} l'expression
+		\item[-C\emph{X}] garde X lignes \textbf{avant} et \textbf{après} l'expression
+	\end{itemize}
+\item[-e] permet de rajouter des pattern à la recherche, -e \emph{pattern1} -e \emph{pattern2} cherchera à la fois le pattern1 et le pattern2 dans le fichier
+\item[-{}-color] permet de colorer les patterns trouvé
+\end{itemize}
 
 \subsubsection*{Exemple d'utilisation}
 
 \begin{lstlisting}
-$
+$ echo -e "miaou\nchaton\nchat" |grep miaou
+miaou
+$ ls
+notes.txt
+$ cat notes.txt |grep -n cirno
+     9  cirno 9/9
+$ grep -n -e trax -e nepta notes.txt
+2:nepta 9/20
+6:trax over 9000!
 \end{lstlisting}
