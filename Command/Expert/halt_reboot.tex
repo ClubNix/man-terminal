@@ -1,9 +1,20 @@
-\subsection*{•}
-\subsubsection*{Description}
-\emph{•}
-
+\subsection*{shutdown}
+Éteindre son ordinateur depuis le terminal, c'est possible,  pour cela, il existe la commande \emph{shutdown}.
+Cette commande demande cependant des privilège super utilisateur (root) et doit donc être utiliser avec la commande sudo.
 \subsubsection*{Exemple d'utilisation}
 
 \begin{lstlisting}
-$
+$ shutdown 0:00
+The system is going down for maintenance in 1149 minutes!
 \end{lstlisting}
+\begin{tiny}
+pour ceux qui font le calcul, commande lancée à 4h51\\
+\end{tiny}
+
+En pratique shutdown n'est pas utilisé, mais il existe deux raccourci plus cours a noter faisant la même chose.
+
+\subsubsection*{halt}
+\emph{halt} est un raccourci pour éteindre le système
+
+\subsubsection*{reboot}
+\emph{reboot} quand a elle permet de redémarrer le système
