@@ -1,9 +1,142 @@
-\subsection*{•}
+\subsection*{git}
 \subsubsection*{Description}
-\emph{•}
+\emph{git} est un un logiciel de gestion de versions distribué, c'est-à-dire un logiciel qui permet d'enregistrer l'évolution d'un ou plusieurs fichiers au cours  du temps. Le terme \emph{distribué} signifie que chaque utilisateur possède sa propre copie du \emph{dépôt} (projet), ce qui permet entre autres de ne pas dépendre d'un serveur contenant un dépôt principal comme c'est le cas avec un système \emph{centralisé}.\\
 
-\subsubsection*{Exemple d'utilisation}
+Un dépôt peut être créé (\lstinline{git init}) ou cloné depuis un projet déjà existant (\lstinline{git clone nomUtilisateur@hote:/chemin/vers/répertoire}). A chaque fois que vous effectuez des modifications sur les fichiers de votre projet, celles-ci doivent être enregistrées. Ci-dessous le cycle de vie d'un ou plusieurs fichier(s) :
+\begin{description}
+\item[1. non-suivi] un fichier non-suivi n'est pas "versionné" par git;
+\item[2. suivi] le fichier a été ajouté à l'index de git par l'utilisateur (\lstinline{git add});
+\item[3. non modifié] le fichier n'a pas encore été modifié;
+\item[4. modifié] le fichier a été modifié par l'utilisateur;
+\item[5. indexé \& modifié] le fichier a été modifié et ajouté à l'index (\lstinline{git add});
+\item[6. enregistré] les modifications ont été sauvegardées (\lstinline{git commit}).
+\end{description}
+\textbf{N.B.} Certains fichiers peuvent être ignorés à l'aide du fichier \emph{.gitgnore}.\\
 
+\noindent Quelques bonnes pratiques peuvent être suivies au niveau des commits:
+\begin{itemize}
+\item un commit devrait contenir des modifications liées. Par exemple, la résolution de deux bugs devrait se faire dans deux commits différents;
+\item Un commit ne devrait pas contenir un travail à moitié effectué. Si besoin est, des modifications peuvent être mises de côté à l'aide de \lstinline{git stash};
+\item Chaque commit doit avoir un message qui fasse un bref résumé des modifications (il faut éviter les messages du type: fix, fix bug, etc).
+\end{itemize}
+\hfill{}
+
+Une des fonctionnalités de Git est la gestion de branches. Un dépôt Git possède de base une branche principale appelée \emph{master}. L'utilisateur peut ajouter ses propres branches, ce qui lui permet de travailler sur plusieurs aspects de son projet (ex: correction d'un bug, ajout d'une fonctionnalité) tout en gardant une branche principale fonctionnelle. Une fois les modifications effectuées sur une branche créée par l'utilisateur, celle-ci peut être fusionnée dans la branche principale (merge).
+
+\subsubsection*{Exemples d'utilisation}
+\paragraph{Premier exemple (dépôt)}
+\begin{enumerate}
+\item Création d'un dépôt git
 \begin{lstlisting}
-$
+$ git init test
+Initialized empty Git repository in /home/user/test/.git/
+$ cd test
 \end{lstlisting}
+\item Ajout d'un fichier
+\begin{lstlisting}
+$ echo -e '#!bin/sh\necho miaou' > test.sh
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	test.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+\end{lstlisting}
+\item Ajoute le fichier à l'index de git
+\begin{lstlisting}
+$ git add test.sh
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   test.sh
+\end{lstlisting}
+\item Valider les modifications
+\begin{lstlisting}
+$ git commit -m 'first file in the project!'
+[master (root-commit) 0f162a5] first file in the project!
+ 1 file changed, 2 insertions(+)
+ create mode 100644 test.sh
+$ git status
+On branch master
+nothing to commit, working directory clean
+\end{lstlisting}
+\end{enumerate}
+
+\paragraph{Second exemple (dépôt distant)}
+\begin{enumerate}
+\item Clone le dépôt git man-terminal hébergé sur GitHub
+\begin{lstlisting}
+$ git clone https://github.com/ClubNix/man-terminal
+\end{lstlisting}
+\item modifications de fichiers, indexation et commit;
+\begin{lstlisting}
+...
+$ git add 
+$ git commit -m 'test'
+\end{lstlisting}
+\item envoi des modifications sur le serveur distant (ici GitHub)
+\begin{lstlisting}
+$ git push
+\end{lstlisting}
+
+\item récupère les modifications que d'autres contributeurs ont ajoutés sur le dépôt distant
+\begin{lstlisting}
+...
+$ git pull
+\end{lstlisting}
+\end{enumerate}
+
+\paragraph{Troisième exemple (branches \& stash)}
+\begin{enumerate}
+\item un développeur travaille sur un programme;
+\item il souhaite ajouter une fonctionnalité "faire le café" à celui-ci, il créé ainsi une branche pour travailler sur cette fonctionnalité;
+\begin{lstlisting}
+$ git checkout -b faireCafe
+Switched to a new branch 'faireCafe'
+\end{lstlisting}
+\item découverte d'un bug majeur, le développeur souhaite interrompre pour le moment le développement de la fonctionnalité "faire le café". Copie les modifications non terminées dans un répertoire de travail à part (\lstinline{git stash});
+\begin{lstlisting}
+...
+$ git stash
+Saved working directory and index state WIP on master: c6d69c2 test
+HEAD is now at c6d69c2 test
+\end{lstlisting}
+\item Retour sur la branche principale;
+\begin{lstlisting}
+$ git checkout master
+Switched to branch 'master'
+\end{lstlisting}
+\item création d'une nouvelle branche pour travailler sur un correctif;
+\begin{lstlisting}
+$ git checkout -b paymentFix
+Switched to a new branch 'paymentFix'
+\end{lstlisting}
+\item développement du correctif terminé, fusion de la branche du correctif dans la branche principale;
+\begin{lstlisting}
+...
+$ git checkout master
+$ git merge paymentFix
+\end{lstlisting}
+\item retour sur la branche de la fonctionnalité "faire le café" et restaure les modifications sauvegardées dans le stash.
+\begin{lstlisting}
+$ git checkout faireCafe
+$ git stash apply
+\end{lstlisting}
+\end{enumerate}
+
+\subsubsection*{Liens utiles}
+\begin{itemize}
+\item \href{http://rogerdudler.github.io/git-guide/}{git - the simple guide}
+\item \href{http://git-scm.com/book/fr}{git Book}
+\item \href{http://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide#320140}{Git for beginners: The definitive practical guide}
+\end{itemize}
