@@ -140,34 +140,35 @@
 \newpage
 \setcounter{page}{1}
 
-\section{Presentation d'un environnement linux}
-TODO: historique linux
+\section{Presentation d'un environnement GNU/Linux}
+TODO: historique Linux
 -> annecdote linus et pinguin
 
 \section{Qu'est-ce que le shell}
 (photo coquillage)
 Le Shell, ou coquillage correspond à l'interpréteur de commande utilisé à l'intérieur de votre terminal.
-Il en existe de toutes sortes (bash, tcsh, sh, ksh, zsh ...) tous permettent d'exécuter des commandes, programmes <insert text here>.
+Il en existe de toutes sortes (bash, tcsh, sh, ksh, zsh \dots). Tous permettent d'exécuter des commandes, programmes <insert text here>.
 Dans le monde réel, \emph{bash} est l'interpréteur le plus courant, cependant pour quelque raison obscure vous commencerez par defaut votre aventure à l'ESIEE avec \emph{tcsh}.
-Très peu convivial, nous supposerons pour la suite que vous utilisez bash (vous pouvez lancer le shell \emph{bash} à l'intérieur de \emph{tcsh} en tapant la commande "bash" à l'affichage de votre \emph{prompt}).
-Votre terminal est donc composé d'une fenêtre, permettant d'afficher un historique de commande, de menus pour configurer les couleurs, la font etc., et enfin du \emph{shell}, l'interpréteur qui est lancé automatiquement.
-Ce que vous pouvez voir a partir de là est une ligne ressemblant à ceci:
+Très peu convivial, nous supposerons pour la suite que vous utilisez bash (vous pouvez lancer le shell \emph{bash} à l'intérieur de \emph{tcsh} en tapant la commande <<~bash~>> à l'affichage de votre \emph{prompt}).
+Votre terminal est donc composé d'une fenêtre, permettant d'afficher un historique de commande, de menus pour configurer les couleurs, la police\dots, et enfin du \emph{shell}, l'interpréteur qui est lancé automatiquement.
+Ce que vous pouvez voir a partir de là est une ligne ressemblant à ceci~:
 \begin{lstlisting}
-club@nix ~/$ _
+%club@nix ~/$ _
 \end{lstlisting}
 \begin{tiny}
 Je ne peux pas faire de clignotement sur ce poly, je vous prie d'imaginer l'underscore clignoter
 \end{tiny}\\
 Vous avez donc un affichage d'un certain nombre d'informations à travers votre \emph{prompt}.
+
 \begin{enumerate}
-\item[club@nix] correspond a votre login (nom d'utilisateur, ici "club") suivi du nom de la machine (ici "nix") sur laquelle vous vous trouvez, le tout est séparé par le caractère "@".
+\item[club@nix] correspond a votre login (nom d'utilisateur, ici <<~club~>>) suivi du nom de la machine (ici <<~nix~>>) sur laquelle vous vous trouvez, le tout est séparé par le caractère <<~@~>>.
 \item[$\sim$/] Vient ensuite votre dossier courant suivit du caractère "\$" (le dossier $\sim$ est un raccourci vers \emph{/home/club/}).
 \item[\$\_] Enfin la ligne de commande, vous permettant de taper des... commandes.
 \end{enumerate}
 
 \section{Notation}
 \begin{enumerate}
-\item[\^{}] correspond à la touche "\emph{Ctrl}", \^{}C, signfie donc qu'il faut appuyer en même temps sur la touche "Ctrl" et C (deux touches sont enfoncées).
+\item[\^{}] correspond à la touche <<~\emph{Ctrl}~>>, \^{}C, signfie donc qu'il faut appuyer en même temps sur la touche "Ctrl" et C (deux touches sont enfoncées).
 \end{enumerate}
 
 \section{Commandes Basiques (débutant)}
@@ -200,18 +201,18 @@ Enfin, notez que vous trouverez avec ce document un dossier \emph{Exemple} conte
 \begin{enumerate}
 \item[redrection de flux] 
 \item[gcc] \emph{\textbf{G}nu \textbf{C} \textbf{C}ompiler}  génère des exécutables à partir de fichiers source C
-\item[make] 
+\item[make] Utilitaire pour le maintien d'un groupe de programme
 \item[du] \emph{\textbf{d}isk u\textbf{u}sage} affiche des statistiques de l'utilisation des disques (espaces utilisés par les fichiers)
-\item[df] affiche des statistiquse d'utilisation des systèmes de fichiers (espace libre restant)
-\item[touch] met à jour la date de modification d'un fichier
-\item[find] recherche des fichiers
-\item[locate] recherche des fichiers dans un index
-\item[chmod] modifie les permissions d'un fichier
-\item[chown] modifie le propriétaire d'un fichier
-\item[kill] tue un processus
-\item[nano] éditeur de texte léger (en console)
-\item[tar] compresse des fichier
-\item[wget] télécharge des fichiers
+\item[df] Affiche des statistiquse d'utilisation des systèmes de fichiers (espace libre restant)
+\item[touch] Met à jour la date de modification d'un fichier
+\item[find] Recherche des fichiers.
+\item[locate] Recherche des fichiers dans un index.
+\item[chmod] Modifie les permissions d'un fichier.
+\item[chown] Modifie le propriétaire d'un fichier.
+\item[kill] Envoie un signal à un processus.
+\item[nano] Éditeur de texte léger (en console).
+\item[tar] Compresse des fichiers.
+\item[wget] Outil de téléchargement très complet.
 \item[grep] \emph{\textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint} recherche dans un fichier
 \end{enumerate}
 regexp simple, logiciel sympa (tmux, mocp, lua/bash/python),
