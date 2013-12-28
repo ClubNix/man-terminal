@@ -1,9 +1,9 @@
-pdf : intro\ commandes.tex intro\ commandes.toc
-	pdflatex intro\ commandes.tex
+pdf : intro_commandes.tex intro_commandes.toc
+	pdflatex intro_commandes.tex
 	make clean
 
-intro\ commandes.toc : intro\ commandes.tex
-	pdflatex intro\ commandes.tex
+intro_commandes.toc : intro_commandes.tex
+	pdflatex intro_commandes.tex
 
 clean :
-	rm intro\ commandes.toc intro\ commandes.aux intro\ commandes.out intro\ commandes.log
+	rm intro_commandes.toc intro_commandes.aux intro_commandes.out intro_commandes.log
