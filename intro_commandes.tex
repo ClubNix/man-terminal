@@ -28,6 +28,7 @@
 
 %\usepackage[a4paper]{geometry} % marges plus petites que a4paper standard
 \usepackage{listings} % insérer code source
+\lstloadlanguages{sh,bash,awk,make}
 %\usepackage{algorithm} % algorithmique
 %\usepackage{algorithmic}
 \usepackage{url}
@@ -45,8 +46,8 @@
 
 %% Define listings params %%
 \lstset{
-	numbers=left,
-	language=Java,
+%	numbers=left,
+	language=bash,
 	tabsize=4,
 	frame=single, % cadre autour du code
 	breaklines=true, % autorise couper ligne trop longue
@@ -57,8 +58,8 @@
 	keywordstyle=\color{OliveGreen},
 	stringstyle=\color{BrickRed},
 	commentstyle=\color{grey2}\it,
-	stepnumber=1
-} % numérote toute les x lignes
+	stepnumber=1 % numérote toute les x lignes
+}
 % listing utf8 fr %
 \lstset{%
 	inputencoding=utf8,
@@ -229,7 +230,7 @@ man woman
 
 \section{Liste de commande étendue (intermédiaire)}
 \begin{enumerate}
-\item[redrection de flux] 
+\item[redirection de flux] Permet de rediriger la sortie d'une commande dans un autre commande
 \item[gcc] \emph{\textbf{G}nu \textbf{C} \textbf{C}ompiler}  génère des exécutables à partir de fichiers source C
 \item[make] Utilitaire pour le maintien d'un groupe de programme
 \item[du] \emph{\textbf{d}isk u\textbf{u}sage} affiche des statistiques de l'utilisation des disques (espaces utilisés par les fichiers)
