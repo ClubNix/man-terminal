@@ -1,9 +1,56 @@
-\subsection*{•}
+\subsection*{chmod/chown}
 \subsubsection*{Description}
-\emph{•}
+\noindent \emph{chmod} pour \emph{ch}ange file \emph{mod}e bits et\\
+\emph{chown} pour  \emph{ch}ange file \emph{own}er and group\\
+permettent de changer les attribut d'un fichier, c'est a dire qui peut lire écrire ou exécuter le fichier.
+A noter que seul l'utilisateur root peut modifier le propriétaire (owner) d'un fichier.
+Pour les attribut, ils se séparent en trois catégorie \textbf{u}ser, \textbf{g}roup et \textbf{o}thers.
+l'user correspond aux droit du propriétaire du fichier, group aux utilisateur appartenant au même groupe que ce fichier et others, tout le monde.\\
+Pour chacune de ces catégorie 3 attribut existe: \textbf{r}ead (droit en lecture), \textbf{w}rite (droit en écriture) et e\textbf{x}ecute (droit d’exécution ou de traverser si c'est un dossier)
 
-\subsubsection*{Exemple d'utilisation}
+\noindent L'utilisation de chown est assez simple:
+\begin{lstlisting}
+chown <nouveau propriétaire>:<nouveau groupe> fichier
+chown <nouveau propriétaire> fichier
+chown :<nouveau groupe> fichier
+\end{lstlisting}
+
+\noindent
+Pour chmod, il faut savoir compter en base 8. Après avoir fait un "ls -l" on peut apercevoir une ligne ressemblant à ça:
+\begin{lstlisting}
+-rw-r--r-- 1 club nix 13 sept.  2 05:15 chaton
+\end{lstlisting}
+la partie à regarder est "rw-r--r--" qui peut être (si tous les droits sont accordé à tout le monde) "rwxrwxrwx".
+Pour obtenir la représentation en octal (base 8), il faut convertir chaque triplet "rwx" en somme de chiffre avec la règle suivante:
+r vaut 4, w vaut 2 et x vaut 1, on a ainsi par exemple, pour les droits "rw-", 4+2 = 6
+ainsi les droit lecture/ecriture pour l'utilisateur et lecture pour le groupe et les autres correspond à "644"
 
 \begin{lstlisting}
-$
+$ ls -l 777.txt
+-rwxrwxrwx 1 club nix 0 sept.  2 05:44 777.txt
+$ chmod 644 777.txt
+$ ls -l 777.txt
+-rw-r--r-- 1 club nix 0 sept.  2 05:44 777.txt
+\end{lstlisting}
+
+\subsubsection*{Exemple d'utilisation}
+\begin{lstlisting}
+$ ls -l
+total 16
+-rwxrwxrwx 1 club nix    0 sept.  2 05:44 777.txt
+-rw-r--r-- 1 club nix 13 sept.  2 05:15 chaton
+-r--r--r-- 1 club nix  0 sept.  2 05:14 miaou
+-rw-r--r-- 1 club nix 8518 sept.  2 05:27 poulpe.exe
+$ cat chaton
+oh! un çhat
+$ chmod -r miaou
+$ cat chaton
+cat: chaton: Permission denied
+$ echo "miaou" >> miaou 
+-bash: miaou: Permission denied
+$ ./poulpe.exe 
+-bash: ./poulpe.exe: Permission denied
+$ chmod u+x poulpe.exe
+$ ./poulpe.exe
+oh, un çhat
 \end{lstlisting}
