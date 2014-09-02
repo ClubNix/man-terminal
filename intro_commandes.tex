@@ -148,25 +148,25 @@ A l'heure actuel, GNU/Linux est essentiellement utiliser en tant que serveur et 
 Le logo de linux n'est pas un pingouin mais un \textbf{manchot}, plus exactement un manchot pygmée \url{https://fr.wikipedia.org/wiki/Manchot_pygmée}, pour la petite histoire, Linus est revenu avec cette idée de mascotte après s'être fait mordre lors d'un voyage en Australie par cette même espèce de manchot et coupa cours à la discution qui se portait sur un requin.
 
 \section{Qu'est-ce que le shell}
-(photo coquillage)
 Le Shell, ou coquillage correspond à l'interpréteur de commande utilisé à l'intérieur de votre terminal.
+C'est l'interface minimal entre l'utilisateur et le système d'exploitation.
 Il en existe de toutes sortes (bash, tcsh, sh, ksh, zsh \dots). Tous permettent d'exécuter des commandes, programmes <insert text here>.
 Dans le monde réel, \emph{bash} est l'interpréteur le plus courant, cependant pour quelque raison obscure vous commencerez par defaut votre aventure à l'ESIEE avec \emph{tcsh}.
 Très peu convivial, nous supposerons pour la suite que vous utilisez bash (vous pouvez lancer le shell \emph{bash} à l'intérieur de \emph{tcsh} en tapant la commande <<~bash~>> à l'affichage de votre \emph{prompt}).
 Votre terminal est donc composé d'une fenêtre, permettant d'afficher un historique de commande, de menus pour configurer les couleurs, la police\dots, et enfin du \emph{shell}, l'interpréteur qui est lancé automatiquement.
 Ce que vous pouvez voir a partir de là est une ligne ressemblant à ceci~:
 \begin{lstlisting}
-%club@nix ~/$ _
+club@nix ~ $
 \end{lstlisting}
-\begin{tiny}
-Je ne peux pas faire de clignotement sur ce poly, je vous prie d'imaginer l'underscore clignoter
-\end{tiny}\\
+%PS1="\[\033[01;32m\]club@nix\[\033[01;34m\] \w \$\[\033[00m\] "
+\begin{center}
+\includegraphics[scale=0.42]{Images/terminal}
+\end{center}
 Vous avez donc un affichage d'un certain nombre d'informations à travers votre \emph{prompt}.
-
 \begin{enumerate}
 \item[club@nix] correspond a votre login (nom d'utilisateur, ici <<~club~>>) suivi du nom de la machine (ici <<~nix~>>) sur laquelle vous vous trouvez, le tout est séparé par le caractère <<~@~>>.
-\item[$\sim$/] Vient ensuite votre dossier courant suivit du caractère "\$" (le dossier $\sim$ est un raccourci vers \emph{/home/club/}).
-\item[\$\_] Enfin la ligne de commande, vous permettant de taper des... commandes.
+\item[$\sim$] Vient ensuite votre dossier courant suivit du caractère "\$" (le dossier $\sim$ est un raccourci vers \emph{/home/club/}).
+\item[\$] Enfin la ligne de commande, vous permettant de taper des... commandes. Le dollar signifie juste que vous avez la main (vous pouvez tapez vos commandes).
 \end{enumerate}
 
 \section{Notation}
