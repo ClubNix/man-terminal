@@ -1,7 +1,7 @@
 \subsection*{df/du}
 \subsubsection*{Description}
 \emph{df} et \emph{du} sont deux commandes permettant d'obtenir des informations sur votre système de fichier.
-\emph{df} affiche de manière global l'utilisation du disque (\% d'espace libre) alors que \emph{du} permet d'obtenir l'espace occupé par un dossier.
+\emph{df} affiche de manière globale l'utilisation du disque (\% d'espace libre) alors que \emph{du} permet d'obtenir l'espace occupé par un dossier.
 
 \noindent Pour ces deux commandes l'utilisation de l'argument "-h" est recommandée (affichage lisible par un humain).
 
@@ -19,7 +19,7 @@ cgroup_root         10M       0   10M   0% /sys/fs/cgroup
 
 Ici seule la première ligne est importante, les autres systèmes de fichiers étant "spéciaux" (générés par l'OS et montés dans la RAM).
 Elle nous indique la taille de la partition, la quantité d'espace utilisé (c'est pas beaucoup parce que je suis sur un serveur venant d'être installé), l'espace disque total et un ratio des deux.
-La colonne "monté sur" correspond à l'emplacement de votre système de fichier, vous pouvez obtenir par exemple "/media/club/USB-stick" pour des clefs usb.
+La colonne "monté sur" correspond à l'emplacement de votre système de fichier, vous pouvez obtenir par exemple "/media/club/USB-stick" pour des clés usb.
 
 \begin{lstlisting}
 $ cd /boot/
