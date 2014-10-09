@@ -1,9 +1,34 @@
-\subsection*{•}
+\subsection*{df/du}
 \subsubsection*{Description}
-\emph{•}
+\emph{df} et \emph{du} sont deux commandes permettant d'obtenir des informations sur votre système de fichier.
+\emph{df} affiche de manière globale l'utilisation du disque (\% d'espace libre) alors que \emph{du} permet d'obtenir l'espace occupé par un dossier.
+
+\noindent Pour ces deux commandes l'utilisation de l'argument "-h" est recommandée (affichage lisible par un humain).
 
 \subsubsection*{Exemple d'utilisation}
 
 \begin{lstlisting}
-$
+$ df -h
+Sys. de fichiers Taille Utilisé Dispo Uti% Monté sur
+/dev/sda3          145G    3,8G  134G   3% /
+tmpfs              198M    356K  198M   1% /run
+udev                10M       0   10M   0% /dev
+shm                987M    4,0K  987M   1% /dev/shm
+cgroup_root         10M       0   10M   0% /sys/fs/cgroup
+\end{lstlisting}
+
+Ici seule la première ligne est importante, les autres systèmes de fichiers étant "spéciaux" (générés par l'OS et montés dans la RAM).
+Elle nous indique la taille de la partition, la quantité d'espace utilisé (c'est pas beaucoup parce que je suis sur un serveur venant d'être installé), l'espace disque total et un ratio des deux.
+La colonne "monté sur" correspond à l'emplacement de votre système de fichier, vous pouvez obtenir par exemple "/media/club/USB-stick" pour des clés usb.
+
+\begin{lstlisting}
+$ cd /boot/
+$ du -h *
+1,6M    System.map-3.16.1-gentoo
+71K     config-3.16.1-gentoo
+710K    grub/locale
+1,9M    grub/i386-pc
+5,1M    grub
+12K     lost+found
+3,3M    vmlinuz-3.16.1-gentoo
 \end{lstlisting}

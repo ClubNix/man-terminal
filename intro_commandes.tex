@@ -142,57 +142,81 @@
 \setcounter{page}{1}
 
 \section{Presentation d'un environnement GNU/Linux}
-TODO: historique Linux
--> annecdote linus et pinguin
+Le projet \textit{GNU/Linux} commence en 1983 lorsque Richard Stallman commence le projet GNU, proposant de développer un ensemble de logiciels libres, mais ce n'est qu'en 1992 après des avoir fini la plupart des outils essentiels (gcc, emacs, les cores utils ...) sauf leurs kernel \textit{Hurd} que Linus en propose un, \textit{Linux}, et permet de lancer un système exempt de tout logiciel propriétaire.
+A l'heure actuelle, GNU/Linux est essentiellement utilisé en tant que serveur et par quelques geeks qui souhaitent avoir un contrôle sur ce qu'ils exécutent sur leur ordinateur. La philosophie initiale de Stallman commence à toucher un plus grand public (avec notamment les administrations qui commencent à virer tous les produits Micro\$oft).
 
-\section{Qu'est-ce que le shell}
-(photo coquillage)
+Pour la petite histoire, le logo de Linux n'est pas un pingouin mais un \textbf{manchot}, plus exactement un manchot pygmée \url{https://fr.wikipedia.org/wiki/Manchot_pygmée}. Linus est en effet revenu avec cette idée de mascotte après s'être fait mordre lors d'un voyage en Australie par cette même espèce de manchot et coupa court à la discussion qui se portait sur un requin.
+
+\section{Qu'est-ce que le Shell}
 Le Shell, ou coquillage correspond à l'interpréteur de commande utilisé à l'intérieur de votre terminal.
+C'est l'interface minimale entre l'utilisateur et le système d'exploitation.
 Il en existe de toutes sortes (bash, tcsh, sh, ksh, zsh \dots). Tous permettent d'exécuter des commandes, programmes <insert text here>.
-Dans le monde réel, \emph{bash} est l'interpréteur le plus courant, cependant pour quelque raison obscure vous commencerez par defaut votre aventure à l'ESIEE avec \emph{tcsh}.
+Dans le monde réel, \emph{bash} est l'interpréteur le plus courant, cependant pour quelque raison obscure, vous commencerez par défaut votre aventure à l'ESIEE avec \emph{tcsh}.
 Très peu convivial, nous supposerons pour la suite que vous utilisez bash (vous pouvez lancer le shell \emph{bash} à l'intérieur de \emph{tcsh} en tapant la commande <<~bash~>> à l'affichage de votre \emph{prompt}).
-Votre terminal est donc composé d'une fenêtre, permettant d'afficher un historique de commande, de menus pour configurer les couleurs, la police\dots, et enfin du \emph{shell}, l'interpréteur qui est lancé automatiquement.
-Ce que vous pouvez voir a partir de là est une ligne ressemblant à ceci~:
+Votre terminal est donc composé d'une fenêtre, permettant d'afficher un historique de commandes, de menus pour configurer les couleurs, la police\dots, et enfin du \emph{shell}, l'interpréteur qui est lancé automatiquement.
+Ce que vous pouvez voir à partir de là est une ligne ressemblant à ceci :
 \begin{lstlisting}
-%club@nix ~/$ _
+club@nix ~ $
 \end{lstlisting}
-\begin{tiny}
-Je ne peux pas faire de clignotement sur ce poly, je vous prie d'imaginer l'underscore clignoter
-\end{tiny}\\
+%PS1="\[\033[01;32m\]club@nix\[\033[01;34m\] \w \$\[\033[00m\] "
+\begin{center}
+\includegraphics[scale=0.42]{Images/terminal}
+\end{center}
 Vous avez donc un affichage d'un certain nombre d'informations à travers votre \emph{prompt}.
-
 \begin{enumerate}
-\item[club@nix] correspond a votre login (nom d'utilisateur, ici <<~club~>>) suivi du nom de la machine (ici <<~nix~>>) sur laquelle vous vous trouvez, le tout est séparé par le caractère <<~@~>>.
-\item[$\sim$/] Vient ensuite votre dossier courant suivit du caractère "\$" (le dossier $\sim$ est un raccourci vers \emph{/home/club/}).
-\item[\$\_] Enfin la ligne de commande, vous permettant de taper des... commandes.
+\item[club@nix] correspond à votre login (nom d'utilisateur, ici <<~club~>>) suivi du nom de la machine (ici <<~nix~>>) sur laquelle vous vous trouvez, le tout est séparé par le caractère <<~@~>>.
+\item[$\sim$] Vient ensuite votre dossier courant suivit du caractère "\$" (le dossier $\sim$ est un raccourci vers \emph{/home/club/}).
+\item[\$] Enfin la ligne de commande, vous permettant de taper des... commandes. Le dollar signifie juste que vous avez la main (vous pouvez tapez vos commandes).
 \end{enumerate}
 
 \section{Notation}
 \begin{enumerate}
 \item[\^{}] correspond à la touche <<~\emph{Ctrl}~>>, \^{}C, signfie donc qu'il faut appuyer en même temps sur la touche "Ctrl" et C (deux touches sont enfoncées).
+\item [<super>] correspond à la touche "super" honteusement surmontée par un logo windows sur la plupart des claviers.
+\item [M-] correspond à la touche "Meta", le "alt" à côté de la touche espace.
 \end{enumerate}
 
+\newpage
 \section{Commandes Basiques (débutant)}
-Voici votre première expérience du terminal!
-Il peut vous faire peur et picoter les yeux mais n'ayez crainte. Tout d'abord commençons par ce picotement des yeux, en faisant un click droit et en allant dans profils, préférence du profil vous pourrez changer la couleurs pour quelque chose de moins agressif pour vos yeux, "blanc sur noir" ou "vert sur noir" (pour les plus geeks d'entre vous) plusieurs choses peuvent être configurées, je vous laisse les découvrir.
+\noindent Voici votre première expérience du terminal!\\
+Pour lancer la bête, vous pouvez tester les différentes solutions suivantes:
+\begin{itemize}
+\item Menu -> barre de recherche -> "terminal" (ou "konsole" ou "gnome-terminal" ou "xfterm4" ou "xfce4-terminal")
+\item Alt + f2 -> taper "terminal"
+\item application -> accessoires -> terminal
+\item <super>  -> taper "terminal"
+\item \^{}M-t
+\item sinon le logo à rechercher ressemble à ça:  \includegraphics[scale=0.7]{Images/termIcon}
+\end{itemize}
+Il peut vous faire peur et picoter les yeux mais n'ayez crainte. Tout d'abord commençons par ce picotement des yeux, en faisant un clic droit et en allant dans profils, préférences du profil vous pourrez changer la couleur pour quelque chose de moins agressif pour vos yeux, "blanc sur noir" ou "vert sur noir" (pour les plus geeks d'entre vous) plusieurs choses peuvent être configurées, je vous laisse les découvrir.
 
-Enfin, notez que vous trouverez avec ce document un dossier \emph{Exemple} contenant les exemples cité.
+Enfin, notez que vous trouverez avec ce document un dossier \emph{Exemple} contenant les exemples cités.
 
-\subsection{Liste de commandes}
+\subsection{Raccourcis utiles}
 \begin{description}
-\item[cat] \emph{con\textbf{cat}enate files} affiche un fichier sur l'entrée standard
+\item[Entrée]: la plus importante, lance votre commande
+\item[Flêche haut]: naviguer dans l'historique des commandes. Vous pourrez ainsi gagner du temps et éviter de retaper tojours la même chose
+\item[Tab]: touche de complétion. Vous permet de taper les quelques premières lettres de votre commande, puis de les compléter. Si rien ne s'affiche la première fois que vous appuyez sur la touche, c'est qu'il existe plusieurs possibilités de complétion. Une seconde pression vous permettra d'afficher toutes les complétions possibles.
+\item[Ctrl + Z]: pause la commande en cours.
+\item[Ctrl + C]: arrête la commande en cours, annule l'opération en cours et recommence avec une nouvelle ligne. Très utile si vous voulez annuler l'exécution d'un programme qui boucle de manière infinie, ou si vous vous rendez compte que vous êtes en train d'écrire n'importe quoi.
+\item[Ctrl+L]: nettoie l'écran
+\end{description}
+
+\subsection{Liste de commandes (formulaire)}
+\begin{description}
+\item[cat] \emph{con\textbf{cat}enate files} affiche un fichier sur l'entrée standard.
   \begin{lstlisting}
 cat plop.txt
   \end{lstlisting}
-\item[ls] \emph{\textbf{l}i\textbf{s}t directory contents} permet d'afficher le contenu d'un répertoire
+\item[ls] \emph{\textbf{l}i\textbf{s}t directory contents} permet d'afficher le contenu d'un répertoire.
   \begin{lstlisting}
 ls -lah 
   \end{lstlisting}
-\item[cd] \emph{\textbf{c}hange \textbf{d}irectory} permet de naviguer à travers les répertoires
+\item[cd] \emph{\textbf{c}hange \textbf{d}irectory} permet de naviguer à travers les répertoires.
   \begin{lstlisting}
 cd /usr/src/linux    
   \end{lstlisting}
-\item[cp] \emph{\textbf{c}o\textbf{p}y files} copie un fichier
+\item[cp] \emph{\textbf{c}o\textbf{p}y files} copie un fichier.
   \begin{lstlisting}
 # Pour un fichier
 cp /tmp/plop.txt /home/trax/
@@ -200,7 +224,7 @@ cp /tmp/plop.txt /home/trax/
 # Pour un  répertoire
 cp -r /tmp/foo /home/trax
   \end{lstlisting}
-\item[mv] \emph{\textbf{m}o\textbf{v}e file} déplace un fichier
+\item[mv] \emph{\textbf{m}o\textbf{v}e file} déplace un fichier.
   \begin{lstlisting}
 mv /tmp/foo /home/trax    
   \end{lstlisting}
@@ -209,7 +233,7 @@ mv /tmp/foo /home/trax
 # Pour lancer a.out
 ./a.out    
   \end{lstlisting}
-\item[man] \emph{reference \textbf{man}uals} affiche un manuel sur une commande, fonction, bibliothèque (essayez "man man")
+\item[man] \emph{reference \textbf{man}uals} affiche un manuel sur une commande, fonction, bibliothèque (essayez "man man").
   \begin{lstlisting}
 # Manuel d'utilisation de la command man
 man man
@@ -219,6 +243,7 @@ man woman
   \end{lstlisting}
 \end{description}
 
+\subsection{Details des commandes}
 \input{Command/Debutant/cat.tex}
 \input{Command/Debutant/ls.tex}
 \input{Command/Debutant/cd.tex}
@@ -226,16 +251,21 @@ man woman
 \input{Command/Debutant/mv.tex}
 \input{Command/Debutant/exec.tex}
 \input{Command/Debutant/man.tex}
+
+Ces commandes correspondent aux commandes les plus utilisées dans un terminal,
+% obtenu avec cat .bash_history |cut -d" " -f 1 |sort |uniq -c |sort -n |tail
+Les maîtriser est essentiel pour une utilisation courante de votre terminal (surtout man), mais c'est seulement après que les commandes amusantes arrivent.
+
 \newpage
 
 \section{Liste de commande étendue (intermédiaire)}
 \begin{enumerate}
-\item[redirection de flux] Permet de rediriger la sortie d'une commande dans un autre commande
-\item[gcc] \emph{\textbf{G}nu \textbf{C} \textbf{C}ompiler}  génère des exécutables à partir de fichiers source C
-\item[make] Utilitaire pour le maintien d'un groupe de programme
-\item[du] \emph{\textbf{d}isk u\textbf{u}sage} affiche des statistiques de l'utilisation des disques (espaces utilisés par les fichiers)
-\item[df] Affiche des statistiquse d'utilisation des systèmes de fichiers (espace libre restant)
-\item[touch] Met à jour la date de modification d'un fichier
+\item[redirection de flux] Permet de rediriger la sortie d'une commande dans une autre commande.
+\item[gcc] \emph{\textbf{G}nu \textbf{C} \textbf{C}ompiler}  génère des exécutables à partir de fichiers source C.
+\item[make] Utilitaire pour le maintien d'un groupe de programmes.
+\item[du] \emph{\textbf{d}isk u\textbf{u}sage} affiche des statistiques de l'utilisation des disques (espaces utilisés par les fichiers).
+\item[df] Affiche des statistiques d'utilisation des systèmes de fichiers (espace libre restant).
+\item[touch] Met à jour la date de modification d'un fichier.
 \item[find] Recherche des fichiers.
 \item[locate] Recherche des fichiers dans un index.
 \item[chmod] Modifie les permissions d'un fichier.
@@ -244,9 +274,9 @@ man woman
 \item[nano] Éditeur de texte léger (en console).
 \item[tar] Compresse des fichiers.
 \item[wget] Outil de téléchargement très complet.
-\item[grep] \emph{\textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint} recherche dans un fichier
+\item[grep] \emph{\textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint} recherche dans un fichier.
 \end{enumerate}
-regexp simple, logiciel sympa (tmux, mocp, lua/bash/python),
+%TODO regexp simple, logiciel sympa (tmux, mocp, lua/bash/python),
 
 \input{Command/Intermediaire/grep.tex}
 \input{Command/Intermediaire/chmod.tex}
@@ -267,22 +297,22 @@ regexp simple, logiciel sympa (tmux, mocp, lua/bash/python),
 
 \section{Liste de commandes (expert)}
 \begin{enumerate}
-\item[mount] monter () des systèmes de fichiers (\~partition)
-\item[ncdu] du en mode "graphique" (ncurse)
-\item[halt/reboot] éteindre et redémarrer son ordinateur
-\item[find] recherche étendu sur son système
-\item[ps] \emph{\textbf{p}rocess \textbf{s}nap} affiche la liste des processus lancés
-\item[awk] langage pour appliquer des pattern sur des pattern
-\item[sed] \emph{\textbf{s}tream \textbf{ed}itor} permet d'appliquer des regexp de substitution sur des fichiers
-\item[ssh] \emph{\textbf{s}ecure \textbf{sh}ell} lance un shell sur une machine distante de manière sécurisée
-\item[git] logiciel de versionnement simple et rapide
-\item[usermod] \emph{\textbf{user} \textbf{mod}ify} gère les comptes utilisateurs
-\item[groupmod] \emph{\textbf{group} \textbf{mod}ify} gère les groupes utilisateurs
-\item[ifconfig] \emph{\textbf{i}nter\textbf{f}ace \textbf{config}uration} gestion des interfaces réseaux
-\item[grep] \emph{\textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint} recherche de pattern dans un fichier
+\item[mount] monter () des systèmes de fichiers (\~{}partition).
+\item[ncdu] du en mode "graphique" (ncurse).
+\item[halt/reboot] éteindre et redémarrer son ordinateur.
+\item[find] recherche étendu sur son système.
+\item[ps] \emph{\textbf{p}rocess \textbf{s}nap} affiche la liste des processus lancés.
+\item[awk] langage pour appliquer des pattern sur des pattern.
+\item[sed] \emph{\textbf{s}tream \textbf{ed}itor} permet d'appliquer des regexp de substitution sur des fichiers.
+\item[ssh] \emph{\textbf{s}ecure \textbf{sh}ell} lance un shell sur une machine distante de manière sécurisée.
+\item[git] logiciel de versionnement simple et rapide.
+\item[usermod] \emph{\textbf{user} \textbf{mod}ify} gère les comptes utilisateurs.
+\item[groupmod] \emph{\textbf{group} \textbf{mod}ify} gère les groupes utilisateurs.
+\item[ifconfig] \emph{\textbf{i}nter\textbf{f}ace \textbf{config}uration} gestion des interfaces réseaux.
+\item[grep] \emph{\textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint} recherche de pattern dans un fichier.
 \end{enumerate}
-un peu de réseaux? services,
-dossier de base (/etc/, /var/, /home/, /mnt/)
+%TODO un peu de réseaux? services,
+%TODO dossier de base (/etc/, /var/, /home/, /mnt/)
 
 \input{Command/Expert/awk.tex}
 \input{Command/Expert/find.tex}
@@ -299,6 +329,6 @@ dossier de base (/etc/, /var/, /home/, /mnt/)
 
 
 \section{Une interface graphique c'est bien aussi}
-lolwoot, y'a vraiment des gens qui font des apt-get install? 
+%lolwoot, y'a vraiment des gens qui font des apt-get install? 
 
 \end{document}
