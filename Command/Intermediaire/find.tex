@@ -22,35 +22,35 @@ valeur égale à $n$, \textit{+n} pour une valeur supérieure à $n$ et
 Parmi les options, on trouve par exemple :
 
 \begin{table}[h]
-	\centering
+    \centering
     \begin{tabular}{|l|p{10cm}|}
         \hline
         \textbf{Option}              & \textbf{Description}\\
         \hline
         -name \textit{"nom"}         & Le fichier a un nom de la forme
                                        \textit{"nom"} (les patterns avec * et
-									   autres sont autorisés).\\
+                                       autres sont autorisés).\\
         \hline
         -iname \textit{"nom"}        & Équivalent à -name mais insensible à la
-		                               casse.\\
+                                       casse.\\
         \hline
         -path \textit{"chemin"}      & Le chemin du fichier est de la forme
                                        \textit{"chemin"}.\\
         \hline
         -size \textit{n}             & Le fichier est de taille $n$
                                        (\textit{c} pour octet, \textit{k} pour
-									   kilo octets, \textit{M} pour mega
-									   octets, \textit{G} pour giga octets).\\
+                                       kilo octets, \textit{M} pour mega
+                                       octets, \textit{G} pour giga octets).\\
         \hline
         -ctime \textit{n}            & Le fichier a été changé pour la dernière
-		                               fois il y a $n$ jours. \\
+                                       fois il y a $n$ jours. \\
         \hline
         -user \textit{"utilisateur"} & Le fichier appartient à
                                        \textit{"utilisateur"}.\\
-		\hline
+        \hline
     \end{tabular}
-	\caption{Exemples d'options de la commande \emph{find}}
-	\label{tab:find-opts}
+    \caption{Exemples d'options de la commande \emph{find}}
+    \label{tab:find-opts}
 \end{table}
 
 \paragraph{}
@@ -61,40 +61,40 @@ manière particulière.
 Parmi les actions, on trouve :
 
 \begin{table}[h]
-	\centering
+    \centering
     \begin{tabular}{|l|p{10cm}|}
         \hline
         \textbf{Action} & \textbf{Description}\\
         \hline
         -delete                   & Supprime les fichiers trouvés. Attention
                                     -delete ne demande aucune confirmation et
-									n'affiche pas les fichiers supprimés.\\
+                                    n'affiche pas les fichiers supprimés.\\
         \hline
         -printf \textit{"format"} & Affiche le texte de forme
                                     \textit{"format"} avec les escapes codes
-									(\texttt{\textbackslash n} et autres) et en
-									remplaçant par exemple \texttt{\%f} par le
-									nom de fichier ou dossier et \texttt{\%h}
-									par le chemin menant au fichier ou
-									dossier.\\
-		\hline
-		-print0                   & Affiche le nom du fichier avec le chemin en
-                                    en entier et le caractère null
-									(\texttt{\textbackslash 0}) à la fin de
-									chaque. Utile quand utilisé avec la
-									commande \texttt{xargs} (voir exemples).\\
+                                    (\texttt{\textbackslash n} et autres) et en
+                                    remplaçant par exemple \texttt{\%f} par le
+                                    nom de fichier ou dossier et \texttt{\%h}
+                                    par le chemin menant au fichier ou
+                                    dossier.\\
         \hline
-		-exec \textit{commande} ; & Exécute la commande \textit{commande} pour
+        -print0                   & Affiche le nom du fichier avec le chemin en
+                                    en entier et le caractère null
+                                    (\texttt{\textbackslash 0}) à la fin de
+                                    chaque. Utile quand utilisé avec la
+                                    commande \texttt{xargs} (voir exemples).\\
+        \hline
+        -exec \textit{commande} ; & Exécute la commande \textit{commande} pour
                                     chaque fichier en remplaçant \texttt{\{\}}
-									par le nom avec chemin du fichier en
-									cours.\\
-		\hline
-		-ok \textit{commande} ;   & Équivalent à -exec mais demande la
+                                    par le nom avec chemin du fichier en
+                                    cours.\\
+        \hline
+        -ok \textit{commande} ;   & Équivalent à -exec mais demande la
                                     permission l'utilisateur avant.\\
-		\hline
+        \hline
     \end{tabular}
-	\caption{Exemples d'actions de la commande \emph{find}}
-	\label{tab:find-acts}
+    \caption{Exemples d'actions de la commande \emph{find}}
+    \label{tab:find-acts}
 \end{table}
 
 \pagebreak
@@ -116,6 +116,7 @@ $ find / -name "*windows*" -delete -print # Supprime tout les fichiers ayant "wi
 /tmp/hate-windows.pdf
 $ find ~ -size +10M -ok rm {} \textbackslash; # Cherche tout les fichiers de taille supérieure à 10 mega octet et demande à l'utilisateur s'il veut le supprimer
 < file ... ~/Vidéos/Usavitch.mp4 > ? n
+< file ... ~/Vidéos/Test.mkv > ? y
 $ find ~/Développement/C/Projet1/ -name "*.c" -print0 | xargs -0 grep main # Cherche la chaine de caractère "main" dans tout les fichiers du dossier ~/Développement/C/Projet1 qui se terminent par .c
 main.c:int main (int argc, char const* argv[]) {
 \end{lstlisting}
