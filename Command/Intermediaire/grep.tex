@@ -1,21 +1,35 @@
 \subsection*{grep}
 \subsubsection*{Description}
-\emph{grep}, pour \emph{\textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint} est une des commandes les plus utiles qui soit.
-Elle permet en effet d'effectuer des recherche dans un document selon un certain \emph{pattern}, c'est-à-dire la recherche d'une expression quelconque (mot se finissant par -ou, commençant par mia- contenant...).
 
-En plus de pouvoir faire ces recherches dans les documents, grep peut aussi en faire sur l'entrée standard, et son utilité en devient accrue en la chaînant aux autres commandes à l'aide d'une pipe ("|"), permettant de filtrer une sortie pour mettre en évidence les données utiles.
+\paragraph{}
+\emph{grep}, pour \emph{\textbf{g}lobally search a \textbf{r}egular
+\textbf{e}xpression and \textbf{p}rint} est une des commandes les plus utiles
+qui soit.  Elle permet en effet d'effectuer des recherche dans un document
+selon un certain \emph{pattern}, c'est-à-dire la recherche d'une expression
+quelconque (mot se finissant par -ou, commençant par mia- contenant\ldots).
 
-Il existe une multitude d'options pour cette commande, nous ne retiendrons que les principales:
+En plus de pouvoir faire ces recherches dans les documents, grep peut aussi en
+faire sur l'entrée standard, et son utilité en devient accrue en la chaînant
+aux autres commandes à l'aide d'une pipe (``|''), permettant de filtrer une
+sortie pour mettre en évidence les données utiles.
+
+Il existe une multitude d'options pour cette commande, nous ne retiendrons que
+les principales:
 \begin{itemize}
-\item[-n] permet d'afficher la ligne et le fichier dans lequel l'expression à été trouvée
-\item[-i] désactive la sensibilité à la casse (les lettres majuscules et minuscules sont traitées indifféremment)
+\item[-n] permet d'afficher la ligne et le fichier dans lequel l'expression à
+	été trouvée
+\item[-i] désactive la sensibilité à la casse (les lettres majuscules et
+	minuscules sont traitées indifféremment)
 \item[-A|B|C] permet de conserver plus d'une ligne avant/après l'expression
 	\begin{itemize}
 		\item[-A\emph{X}] garde X lignes \textbf{après} l'expression
 		\item[-B\emph{X}] garde X lignes \textbf{avant} l'expression
-		\item[-C\emph{X}] garde X lignes \textbf{avant} et \textbf{après} l'expression
+		\item[-C\emph{X}] garde X lignes \textbf{avant} et \textbf{après}
+			l'expression
 	\end{itemize}
-\item[-e] permet de rajouter des pattern à la recherche, -e \emph{pattern1} -e \emph{pattern2} cherchera à la fois le pattern1 et le pattern2 dans le fichier
+\item[-e] permet de rajouter des pattern à la recherche, -e \emph{pattern1} -e
+	\emph{pattern2} cherchera à la fois le pattern1 et le pattern2 dans le
+	fichier
 \item[-{}-color] permet de colorer les patterns trouvés
 \end{itemize}
 
