@@ -1,9 +1,95 @@
-\subsection*{•}
+\subsection*{tar}
 \subsubsection*{Description}
-\emph{•}
+
+\paragraph{}
+
+\emph{tar} est un utilitaire qui permet de créer et de gérer des archives, soit
+de compresser et / ou regrouper des fichiers dans un autre fichier, de les
+lire, ou encore de les extraire. La syntaxe est de la sorte :
+
+\begin{lstlisting}
+tar action [fichiers/options]
+\end{lstlisting}
+
+Parmis les actions, on trouve :
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|p{10cm}|}
+		\hline
+		\textbf{Action} & \textbf{Description}\\
+		\hline
+		c               & Crée une archive\\
+		\hline
+		x               & Extrait une archive\\
+		\hline
+		t               & Liste les fichiers présents dans une archive\\
+		\hline
+	\end{tabular}
+	\caption{Liste des actions possibles pour la commande \emph{tar}}
+	\label{tab:taractions}
+\end{table}
+
+Cependant, il faut pour spécifier une archive, ou dire sous quelle format de
+compression l'on veut effectuer l'action, utiliser d'autres options. Parmis
+elles, on trouve:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|p{10cm}|}
+		\hline
+		\textbf{Action} & \textbf{Description}\\
+		\hline
+		f & Utilise l'archive suivante (pour création, modification, listage,
+			etc\ldots)\\
+		\hline
+		v & Mode verbose, affiche les fichiers en train d'être traités.\\
+		\hline
+		a & Auto détecte la compression utilisée.\\
+		\hline
+		z & Utilise la compression \emph{gzip}.\\
+		\hline
+	\end{tabular}
+	\caption{Liste des options possibles pour la commande \emph{tar}}
+	\label{tab:taroptions}
+\end{table}
+
+Ainsi donc, pour créer une archive s'appelant ``\texttt{archive.tar}'',
+contenant les fichiers ``\texttt{1.txt}'' et ``\texttt{2.txt}'', il suffit
+d'utiliser la commande :
+
+\begin{lstlisting}
+tar cf archive.tar 1.txt 2.txt
+\end{lstlisting}
+
+ou 
+\begin{lstlisting}
+tar cvf archive.tar 1.txt 2.txt
+\end{lstlisting}
+
+pour afficher en plus les fichiers en train d'être traités
 
 \subsubsection*{Exemple d'utilisation}
 
 \begin{lstlisting}
-$
+$ tar cf archive.tar 1.txt 2.txt
+$ tar cvf archive.tar 1.txt 2.txt
+1.txt
+2.txt
+$ tar cvzf archive.tar.gz *.txt
+1.txt
+2.txt
+3.txt
+hello.txt
+$ tar caf archive.tar.xz *.txt
+$ tar tvf archive.tar.xz
+-rw-rw-r-- user/club 349379 2014-10-22 13:47 1.txt
+-rw-rw-r-- user/club 349390 2014-10-22 13:50 2.txt
+-rw-rw-r-- user/club 349410 2014-10-22 13:59 3.txt
+-rw-rw-r-- user/club 349123 2014-10-21 14:33 hello.txt
+$ tar xvaf archive.tar.xz
+1.txt
+2.txt
+3.txt
+hello.txt
 \end{lstlisting}
