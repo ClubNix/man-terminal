@@ -121,8 +121,8 @@
 \begin{document}
 
 \title{Introduction aux commandes shell (Linux) basique}
-\author{Club*Nix}
-\date{Compilé le \today}
+\author{\includegraphics[scale=0.7]{clubnix}}
+\date{\url{https://github.com/ClubNix/man-terminal}}
 
 \maketitle
 %% Laisse page blanche pour verso page de garde %%
@@ -204,35 +204,6 @@ Enfin, notez que vous trouverez avec ce document un dossier \emph{Exemple} conte
 
 \subsection{Liste de commandes (formulaire)}
 \begin{description}
-\item[cat] \emph{con\textbf{cat}enate files} affiche un fichier sur l'entrée standard.
-  \begin{lstlisting}
-cat plop.txt
-  \end{lstlisting}
-\item[ls] \emph{\textbf{l}i\textbf{s}t directory contents} permet d'afficher le contenu d'un répertoire.
-  \begin{lstlisting}
-ls -lah
-  \end{lstlisting}
-\item[cd] \emph{\textbf{c}hange \textbf{d}irectory} permet de naviguer à travers les répertoires.
-  \begin{lstlisting}
-cd /usr/src/linux
-  \end{lstlisting}
-\item[cp] \emph{\textbf{c}o\textbf{p}y files} copie un fichier.
-  \begin{lstlisting}
-# Pour un fichier
-cp /tmp/plop.txt /home/trax/
-
-# Pour un  répertoire
-cp -r /tmp/foo /home/trax
-  \end{lstlisting}
-\item[mv] \emph{\textbf{m}o\textbf{v}e file} déplace un fichier.
-  \begin{lstlisting}
-mv /tmp/foo /home/trax
-  \end{lstlisting}
-\item[./<exec>] lance le script/programme \emph{<exec>}
-  \begin{lstlisting}
-# Pour lancer a.out
-./a.out
-  \end{lstlisting}
 \item[man] \emph{reference \textbf{man}uals} affiche un manuel sur une commande, fonction, bibliothèque (essayez "man man").
   \begin{lstlisting}
 # Manuel d'utilisation de la command man
@@ -241,16 +212,51 @@ man man
 # Fail
 man woman
   \end{lstlisting}
+
+\item[cat] \emph{con\textbf{cat}enate files} affiche un fichier sur l'entrée standard.
+  \begin{lstlisting}
+cat plop.txt
+  \end{lstlisting}
+
+\item[ls] \emph{\textbf{l}i\textbf{s}t directory contents} permet d'afficher le contenu d'un répertoire.
+  \begin{lstlisting}
+ls -lah
+  \end{lstlisting}
+
+\item[cd] \emph{\textbf{c}hange \textbf{d}irectory} permet de naviguer à travers les répertoires.
+  \begin{lstlisting}
+cd /usr/src/linux
+  \end{lstlisting}
+
+\item[cp] \emph{\textbf{c}o\textbf{p}y files} copie un fichier.
+  \begin{lstlisting}
+# Pour un fichier
+cp /tmp/plop.txt /home/trax/
+
+# Pour un  répertoire
+cp -r /tmp/foo /home/trax
+  \end{lstlisting}
+
+\item[mv] \emph{\textbf{m}o\textbf{v}e file} déplace un fichier.
+  \begin{lstlisting}
+mv /tmp/foo /home/trax
+  \end{lstlisting}
+
+\item[./<exec>] lance le script/programme \emph{<exec>}
+  \begin{lstlisting}
+# Pour lancer a.out
+./a.out
+  \end{lstlisting}
 \end{description}
 
 \subsection{Details des commandes}
+\input{Command/Debutant/man.tex}
 \input{Command/Debutant/cat.tex}
 \input{Command/Debutant/ls.tex}
 \input{Command/Debutant/cd.tex}
 \input{Command/Debutant/cp.tex}
 \input{Command/Debutant/mv.tex}
 \input{Command/Debutant/exec.tex}
-\input{Command/Debutant/man.tex}
 
 Ces commandes correspondent aux commandes les plus utilisées dans un terminal,
 % obtenu avec cat .bash_history |cut -d" " -f 1 |sort |uniq -c |sort -n |tail
