@@ -1,14 +1,10 @@
-\subsection*{cd}
+\subsection{cd}
 \subsubsection*{Description}
-\emph{cd} permet de naviguer à travers l'arborescence des dossiers.
-En plus de pouvoir se déplacer dans un fichier, cette commande accepte plusieurs caractères spéciaux.
-En essayant de se déplacer dans le dossier "..", la commande permet de revenir au dossier précédent.
-Il est aussi possible de revenir directement à la racine de ces fichiers, sa "home" à l'aide du caractère "\~{}", à noter qu'omettre un nom de dossier a la même conséquence.
 
-La commande cd accepte des chemins \emph{absolus}, "/home/nepta/Poly\textbackslash Linux/", mais aussi des chemins \emph{relatifs}, "Poly\textbackslash \textvisiblespace Linux" permettant de se déplacer en fonction du dossier courant.
-
-Certains caractères, notamment le caractère espace (" ") doivent être \emph{échappés} afin d'être pris en compte, pour cela le caractère "\textbackslash" est utilisé ("Poly Linux" devient "Poly\textbackslash Linux",
-"Chaton\textbackslash Chat\textbackslash Tigre" devient "Chaton\textbackslash \textbackslash Chat\textbackslash \textbackslash Tigre")
+\paragraph{} \texttt{cd} permet de naviguer à travers l'arborescence des
+dossiers. Comme paramètre, cette commande accepte aussi bien un chemin relatif
+comme absolu. Sans paramètre, cette commande vous mènera à votre dossier
+personnel (\texttt{\~}).
 
 \subsubsection*{Exemples d'utilisation}
 
@@ -16,5 +12,5 @@ Certains caractères, notamment le caractère espace (" ") doivent être \emph{�
 ~/$ cd Poly\ Linux
 ~/Poly Linux/$ cd Chaton/Petit\ Chat/
 ~/Poly Linux/Chaton/Petit Chat/$ cd
-~/ $ 
+~/$
 \end{lstlisting}

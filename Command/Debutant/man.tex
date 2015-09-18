@@ -1,11 +1,55 @@
-\subsection*{man}
+\subsection{man}
+
 \subsubsection*{Description}
-\emph{man} sert à consulter le manuel du système. 
+
+\paragraph{} \emph{man} sert à consulter le manuel du système. Il s'agit là
+probablement de la commande la plus utile pour un débutant dans un terminal.
+Elle prend en paramètre une ou plusieurs commandes dont on veut connaître la
+description et l'utilisation.
 
 \subsubsection*{Exemple d'utilisation}
 
 \begin{lstlisting}
-$ man man
 $ man cat
-$ man rsync
+CAL(1)                   User Commands                   CAL(1)
+
+
+
+NAME
+       cal - display a calendar
+
+SYNOPSIS
+       cal [options] [[[day] month] year]
+
+DESCRIPTION
+       cal  displays  a  simple  calendar.  If no arguments are
+       specified, the current month is displayed.
+
+OPTIONS
+       -1, --one
+              Display  single  month  output.   (This  is   the
+              default.)
+
+       -3, --three
+              Display three months spanning the date.
+
+       -n , --months number
+              Display number of months, starting from the month
+              containing the date.
+...
 \end{lstlisting}
+
+\paragraph{} Parmi les informations importantes ici, on peut voir le synopsis
+de la commande. Les mots entre crochets sont facultatifs. Cela signifie donc
+que toutes les options (commençant par des tirets) sont facultatifs, et que
+spécifier l'année est facultative, de même pour le mois si l'année est
+présente, etc\ldots
+
+\paragraph{} Par exemple, on peut écrire comme commandes:
+\begin{itemize}
+	\item \texttt{cal}
+	\item \texttt{cal -1}
+	\item \texttt{cal 2015}
+	\item \texttt{cal ----months 4 02 2014} (affiche 4 mois à partir de février
+		2014)
+\end{itemize}
