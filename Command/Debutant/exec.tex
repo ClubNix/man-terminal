@@ -2,13 +2,12 @@
 
 \subsubsection*{Description}
 
-\paragraph{}
-Afin d'executer un programme, l'interpréteur de commande doit comprendre que le
+\paragraph{} Afin d'exécuter un programme, le shell doit comprendre que le
 programme se situe dans un dossier et non dans la liste des commandes
-installées.  Pour ce faire on peut lui donner le chemin absolu vers le logiciel
-ou relatif, taper directement \emph{exec} sera cependant considéré comme une
-commande à chercher dans une destination standard (là où se trouve les autres
-commandes cat,ls ...).  On utilise donc le fichier special \emph{.},
+installées.  Pour ce faire, on peut lui donner le chemin absolu ou relatif vers
+le logiciel, taper directement \emph{exec} sera cependant considéré comme une
+commande à chercher dans une destination standard (là où se trouvent les autres
+commandes cat, ls\ldots).  On utilise donc le fichier spécial \emph{.},
 représentant le dossier courant, pour finalement obtenir \emph{./exec}
 signifiant donc \emph{"l'exécutable exec se situant dans le dossier courant"}.
 

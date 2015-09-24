@@ -24,7 +24,7 @@ total 20
 \end{lstlisting}
 
 \paragraph{} On voit que l'option \texttt{-l} affiche plein d'informations
-d'utiles. La première colonne indique les droits sur le fichier, que l'on
+utiles. La première colonne indique les droits sur le fichier, que l'on
 expliquera après, la troisième colonne avec \texttt{club} indique le
 propriétaire du fichier (donc le propriétaire est l'utilisateur \texttt{club}).
 La quatrième colonne représente le groupe propriétaire du fichier. Dans cet
@@ -41,15 +41,15 @@ par \texttt{r} pour \emph{read}), le droit d'écriture (représenté par
 \texttt{w} pour \emph{write}) et le droit d'exécution (représenté par
 \texttt{x} pour \emph{eXecute}).
 
-\paragraph{} On a la première lettre de cette colonne correspond au type de
-fichier. Si par exemple, il s'agit d'un dossier, on verra la lettre \texttt{d}.
-Et si c'est un fichier normal, ce sera un \texttt{-}. Les trois prochaines
-lettres correspondent respectivement au droit de lecture, écriture et exécution
-pour le propriétaire du fichier: si la lettre (\texttt{r}, \texttt{w} ou
-\texttt{x}) est présente, cela veut dire que le propriétaire possède le droit,
-sinon, la lettre sera remplacée par un \texttt{-}. Les trois lettre suivante
-sont pour les membres du groupe auquel appartient le fichier, et les trois
-dernières lettres sont pour les autres utilisateurs.
+\paragraph{} La première lettre de cette colonne correspond au type de fichier.
+Si par exemple, il s'agit d'un dossier, on verra la lettre \texttt{d}.  Et si
+c'est un fichier normal, ce sera un \texttt{-}. Les trois prochaines lettres
+correspondent respectivement au droit de lecture, écriture et exécution pour le
+propriétaire du fichier: si la lettre (\texttt{r}, \texttt{w} ou \texttt{x})
+est présente, cela veut dire que le propriétaire possède le droit, sinon, la
+lettre sera remplacée par un \texttt{-}. Les trois lettre suivante sont pour
+les membres du groupe auquel appartient le fichier, et les trois dernières
+lettres sont pour les autres utilisateurs.
 
 \paragraph{} Par exemple, si l'on a \texttt{-rw-r----r----}, cela veut dire
 qu'il s'agit d'un fichier normal et que le propriétaire peut lire le fichier,

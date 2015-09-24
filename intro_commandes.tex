@@ -156,7 +156,7 @@
 
 \paragraph{}
 Le projet \textit{GNU/Linux} commence en 1983 lorsque Richard Stallman propose
-de développer un ensemble de logiciels libres, s'appellant le projet GNU, mais
+de développer un ensemble de logiciels libres, s'appelant le projet GNU, mais
 ce n'est qu'en 1992 après avoir fini la plupart des outils essentiels que Linus
 Torvalds propose un kernel (le cœur d'un système d'exploitation),
 \textit{Linux}, et ceci permet donc de lancer un système exempt de tout
@@ -177,62 +177,111 @@ Pour la petite histoire, le logo de Linux n'est pas un pingouin mais un
 s'être fait mordre lors d'un voyage en Australie par cette même espèce de
 manchot et coupa court à la discussion qui se portait sur un requin.
 
-\part{Qu'est-ce que le Shell?}
+\part{Qu'est-ce que le terminal?}
 
-\paragraph{}
-Le Shell correspond au programme qui va interpréter et exécuter les commandes
-tapées à l'intérieur de votre terminal. La partie qui s'affiche sur le terminal
-est appelé un \emph{prompt} et est composé de texte, qui affiche des
-informations utiles, un d'un champ de texte qui vous permet d'entrer des
-commandes en tapant sur le clavier. Le shell donc est l'interface minimale
-entre l'utilisateur et le système d'exploitation.
+\paragraph{} Pour comprendre ce qu'est le terminal, il faut d'abord savoir
+qu'il y a deux catégories de programmes: les programmes graphiques et les
+programmes en mode texte. Un inconvénient des programmes en mode texte: ils ont
+besoin d'un "support" où le texte va être affiché. On appelle ce support un
+terminal.
 
-\paragraph{} Il en existe de toutes sortes (bash, tcsh, sh, ksh, zsh \dots) qui
-ont chacun des fonctionnalités différentes, mais tous permettent d'exécuter des
-commandes ou des programmes. Dans le monde réel, \emph{bash} est l'interpréteur
-le plus courant, cependant pour une raison obscure, vous commencerez par défaut
-votre aventure à l'ESIEE avec \emph{tcsh}.
+\paragraph{} Pour lancer la bête, vous pouvez tester les différentes solutions
+suivantes:
+\begin{itemize}
+	\item Menu $\rightarrow$ barre de recherche $\rightarrow$ "terminal" (ou
+		"konsole" ou "gnome-terminal" ou "xfterm4" ou "xfce4-terminal")
+	\item application $\rightarrow$ accessoires $\rightarrow$ terminal
+	\item <super> $\rightarrow$ taper "terminal"
+	\item Alt + f2 $\rightarrow$ taper "gnome-terminal"
+	\item Ctrl+Alt+T
+	\item sinon le logo à rechercher ressemble à ça:
+		\includegraphics[scale=0.7]{Images/termIcon}
+\end{itemize}
 
-Très peu convivial, nous supposerons pour la suite que vous utilisez bash (vous
-pouvez lancer \emph{bash} à l'intérieur de \emph{tcsh} en tapant la commande
-<<~bash~>> à l'affichage de votre \emph{prompt}).
+\paragraph{} Le terminal peut vous faire peur et picoter les yeux au premier
+abord, mais n'ayez crainte. Commençons par ce picotement des yeux,
+en faisant un clic droit et en allant dans profils, préférences du profil vous
+pourrez changer la couleur pour quelque chose de moins agressif pour vos yeux,
+"blanc sur noir" ou "vert sur noir" (pour les plus geeks d'entre vous)
+plusieurs choses peuvent être configurées, je vous laisse les découvrir.
 
-Votre terminal est donc composé d'une fenêtre, permettant d'afficher un
-historique de commandes, de menus pour configurer les couleurs, la police,
-etc\dots, et enfin du \emph{shell}, l'interpréteur qui est lancé
-automatiquement.
-
-Ce que vous pouvez voir à partir de là est une ligne ressemblant à ceci :
+\paragraph{} Ce que vous pouvez voir à partir de là est une ligne ressemblant à
+ceci :
 \begin{lstlisting}
-club@nix ~ $
+user@pc ~ $
 \end{lstlisting}
+
 %PS1="\[\033[01;32m\]club@nix\[\033[01;34m\] \w \$\[\033[00m\] "
+
 \begin{center}
-\includegraphics[scale=0.42]{Images/terminal}
+	\includegraphics[scale=0.42]{Images/terminal}
 \end{center}
-Vous avez donc un affichage d'un certain nombre d'informations à travers votre \emph{prompt}.
+
+\paragraph{} Le programme qui affiche du texte dans le terminal est ce qu'on
+appelle un \emph{Shell}, et il va vous permettre d'entrer des commandes
+GNU/Linux. Vous avez aussi l'affichage d'un certain nombre d'informations
+utiles:
+
 \begin{enumerate}
-\item[club@nix] correspond à votre login (nom d'utilisateur, ici <<~club~>>) suivi du nom de la machine (ici <<~nix~>>) sur laquelle vous vous trouvez, le tout est séparé par le caractère <<~@~>>.
-\item[$\sim$] Vient ensuite votre dossier courant suivit du caractère "\$" (le dossier $\sim$ est un raccourci vers votre dossier personnel \emph{/home/nom-d-utilisateur/}).
-\item[\$] Le dollar signifie juste que vous êtes un utilisateur normal (à l'opposition du \emph{\#} qui signifie que vous êtes super-utilisateur).
+	\item[user@pc] correspond à votre login (nom d'utilisateur, ici
+		<<~user~>>) suivi du nom de la machine (ici <<~pc~>>) sur laquelle
+		vous vous trouvez, le tout est séparé par le caractère <<~@~>>.
+	\item[$\sim$] est le dossier courant suivit du caractère "\$"
+		(le dossier $\sim$ est un raccourci vers votre dossier personnel
+		\emph{/home/user/}).
+	\item[\$] Le dollar signifie juste que vous êtes un utilisateur normal (à
+		l'opposition du \emph{\#} qui signifie que vous êtes
+		super-utilisateur).
 \end{enumerate}
+
+\paragraph{} Il existe toutes sortes de Shell (bash, tcsh, sh, ksh, zsh\dots)
+qui ont chacun des fonctionnalités différentes, mais tous permettent d'exécuter
+des commandes ou des programmes. Dans le monde réel, \emph{bash} est
+l'interpréteur le plus courant, cependant pour une raison obscure, vous
+commencerez par défaut votre aventure à l'ESIEE avec \emph{tcsh}.
+
+\paragraph{} Comme \emph{tcsh} est très peu convivial, nous supposerons par la
+suite que vous utilisez bash (vous pouvez lancer \emph{bash} à l'intérieur du
+terminal en tapant la commande \texttt{bash}).
+
+\paragraph{} En résumé, le Shell correspond au programme qui va interpréter et
+exécuter les commandes tapées à l'intérieur de votre terminal. Il est composé
+de texte, qui affiche des informations utiles, un d'un champ de texte qui vous
+permet d'entrer des commandes en tapant sur le clavier. C'est donc est
+l'interface minimale entre l'utilisateur et le système d'exploitation.
+
+\paragraph{} Le Shell est exécuté à l'intérieur d'un terminal qui est une
+application graphique qui permet de faire l'intermédiaire entre les programmes
+en mode texte et l'utilisateur.
 
 \part{Notation}
 
 \begin{enumerate}
-\item[\^{}] correspond à la touche <<~\emph{Ctrl}~>>, \^{}C, signfie donc qu'il faut appuyer en même temps sur la touche "Ctrl" et C (deux touches sont enfoncées).
-\item [<super>] correspond à la touche "super" honteusement surmontée par un logo windows sur la plupart des claviers.
-\item [M-] correspond à la touche "Meta", le "alt" à côté de la touche espace.
+	\item[\^{}] correspond à la touche <<~\emph{Ctrl}~>>, \^{}C, signfie donc
+		qu'il faut appuyer en même temps sur la touche "Ctrl" et C (deux
+		touches sont enfoncées).
+	\item [<super>] correspond à la touche "super" honteusement surmontée par
+		un logo windows sur la plupart des claviers.
+	\item [M-] correspond à la touche "Meta", le "alt" à côté de la touche
+		espace.
 \end{enumerate}
 
 \part{Chemins absolus et chemins relatifs}
 
-\paragraph{} Un chemin, ou chemin d'accès (\emph{path} en anglais) est tout
-simplement un chaîne de caractère représentant la position d'un fichier ou d'un
-dossier dans le système. Sous GNU/Linux, (contrairement à Windows par
-exemple), les chemins, sont séparés par des barres obliques orientés vers la
-droite: ``\texttt{/}''. Cela explique le fait que ce caractère soit interdit dans
-les noms de fichiers et dossiers sous GNU/Linux.
+\paragraph{} Un chemin, ou chemin d'accès (\emph{path} en anglais) représente
+tout simplement la position d'un fichier ou d'un dossier dans le système. Sous
+GNU/Linux, les chemins sont séparés par des barres obliques orientés vers la
+droite: ``\texttt{/}''.  Cela explique le fait que ce caractère soit interdit
+dans les noms de fichiers et dossiers sous GNU/Linux.
+
+\paragraph{Exemples:}
+
+\begin{itemize}
+	\item \texttt{/home/nom-d-utilisateur/Documents/Bla.pdf}
+	\item \texttt{Musique/thing.mp3}
+	\item \texttt{\~{}/Images/wallpaper.png}
+	\item \texttt{../man-terminal.pdf}
+\end{itemize}
 
 \section{Chemins absolus}
 
@@ -279,10 +328,23 @@ personnel (\texttt{/home/nom-d-utilisateur}), cela nous donne:
 \section{Chemins spéciaux}
 
 \paragraph{} Parmis les chemins sous GNU/Linux, il y a quelques chemins
-spéciaux: il y a le chemin ``\texttt{\~}'' qui correspond au dossier personnel
-(\texttt{/home/nom-d-utilisateur}), il y a aussi le dossier ``\texttt{.}'' qui
-correspond au dossier actuel, et le dossier ``\texttt{..}'' qui correspond au
-dossier parent.
+spéciaux:
+
+\begin{itemize}
+	\item ``\texttt{\~}'' correspond au dossier personnel
+		(\texttt{/home/nom-d-utilisateur}), ainsi\\
+		\texttt{\~/Musique}\\
+		correspond à\\
+		\texttt{/home/nom-d-utilisateur/Musique}
+	\item ``\texttt{.}'' correspond au dossier actuel, donc\\
+		\texttt{Documents/./texte.txt}\\
+		correspond à\\
+		\texttt{Documents/texte.txt}
+	\item ``\texttt{..}'' correspond au dossier parent, donc\\
+		\texttt{/home/nom-d-utilisateur/Documents/../Téléchargements/cat.gif}\\
+		est équivalent à\\
+		\texttt{/home/nom-d-utilisateur/Téléchargements/cat.gif}
+\end{itemize}
 
 \section{Caractères spéciaux}
 
@@ -320,26 +382,6 @@ cela donne:
 \end{itemize}
 
 \part{Commandes Basiques (débutant)}
-
-Voici votre première expérience du terminal!\\
-Pour lancer la bête, vous pouvez tester les différentes solutions suivantes:
-\begin{itemize}
-	\item Menu $\rightarrow$ barre de recherche $\rightarrow$ "terminal" (ou
-		"konsole" ou "gnome-terminal" ou "xfterm4" ou "xfce4-terminal")
-	\item Alt + f2 $\rightarrow$ taper "terminal"
-	\item application $\rightarrow$ accessoires $\rightarrow$ terminal
-	\item <super> $\rightarrow$ taper "terminal"
-	\item Ctrl+Alt+T
-	\item sinon le logo à rechercher ressemble à ça:
-		\includegraphics[scale=0.7]{Images/termIcon}
-\end{itemize}
-
-\paragraph{} Le terminal peut vous faire peur et picoter les yeux au premier
-abord, mais n'ayez crainte. Commençons par ce picotement des yeux,
-en faisant un clic droit et en allant dans profils, préférences du profil vous
-pourrez changer la couleur pour quelque chose de moins agressif pour vos yeux,
-"blanc sur noir" ou "vert sur noir" (pour les plus geeks d'entre vous)
-plusieurs choses peuvent être configurées, je vous laisse les découvrir.
 
 \section{Raccourcis utiles}
 
@@ -403,16 +445,16 @@ cd /usr/src/linux
 
   \begin{lstlisting}
 # Pour un fichier
-cp /tmp/plop.txt /home/trax/
+cp /tmp/plop.txt /home/nom-d-utilisateur/
   \end{lstlisting}
 %# Pour un  répertoire
-%cp -r /tmp/foo /home/trax
+%cp -r /tmp/foo /home/nom-d-utilisateur
   %\end{lstlisting}
 
 \item[mv]: \emph{\textbf{m}o\textbf{v}e file} déplace un fichier ou un dossier.
 
   \begin{lstlisting}
-mv /tmp/foo /home/trax
+mv /tmp/foo /home/nom-d-utilisateur
   \end{lstlisting}
 
 \item[./<exec>]: lance le script/programme \emph{<exec>} qui se trouve dans le
@@ -436,10 +478,15 @@ mv /tmp/foo /home/trax
 
 \vspace{7em}
 
-Ces commandes correspondent aux commandes les plus utilisées dans un terminal,
+\paragraph{} Ces commandes correspondent aux commandes les plus utilisées dans
+un terminal,
 % obtenu avec cat .bash_history |cut -d" " -f 1 |sort |uniq -c |sort -n |tail
-Les maîtriser est essentiel pour une utilisation courante de votre terminal (surtout man), mais c'est seulement après que les commandes amusantes arrivent.
+Les maîtriser est essentiel pour une utilisation courante de votre terminal
+(surtout man), mais c'est seulement avec les commande intermédiaires que le
+gain de productivité pourra se faire ressentir.
 
 \newpage
 
 \end{document}
+
+% vim: spell : spelllang=fr

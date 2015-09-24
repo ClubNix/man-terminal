@@ -10,7 +10,7 @@ description et l'utilisation.
 \subsubsection*{Exemple d'utilisation}
 
 \begin{lstlisting}
-$ man cat
+$ man cal
 CAL(1)                   User Commands                   CAL(1)
 
 
@@ -39,17 +39,45 @@ OPTIONS
 ...
 \end{lstlisting}
 
-\paragraph{} Parmi les informations importantes ici, on peut voir le synopsis
-de la commande. Les mots entre crochets sont facultatifs. Cela signifie donc
-que toutes les options (commençant par des tirets) sont facultatifs, et que
-spécifier l'année est facultative, de même pour le mois si l'année est
-présente, etc\ldots
+\paragraph{} Parmi les informations importantes ici, on peut voir le
+\emph{synopsis} de la commande. Les mots entre crochets sont facultatifs. Cela
+signifie donc que toutes les options (commençant par des tirets) sont
+facultatives, et que spécifier l'année est facultatif, de même que le mois si
+l'année est présente, etc\ldots
 
 \paragraph{} Par exemple, on peut écrire comme commandes:
 \begin{itemize}
-	\item \texttt{cal}
-	\item \texttt{cal -1}
-	\item \texttt{cal 2015}
+	\item \texttt{cal}, ce qui donne:
+\begin{lstlisting}
+   septembre 2015
+lu ma me je ve sa di
+    1  2  3  4  5  6
+ 7  8  9 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30
+\end{lstlisting}
+	\item \texttt{cal -1}, qui nous donne le même résultat que la commande
+		précédente
+	\item \texttt{cal 2015}, qui nous donne le calendrier pour 2015
+		(un peu long).
 	\item \texttt{cal ----months 4 02 2014} (affiche 4 mois à partir de février
-		2014)
+		2014), nous donnant donc:
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
+    février 2014            mars 2014            avril 2014
+lu ma me je ve sa di  lu ma me je ve sa di  lu ma me je ve sa di
+                1  2                  1  2      1  2  3  4  5  6
+ 3  4  5  6  7  8  9   3  4  5  6  7  8  9   7  8  9 10 11 12 13
+10 11 12 13 14 15 16  10 11 12 13 14 15 16  14 15 16 17 18 19 20
+17 18 19 20 21 22 23  17 18 19 20 21 22 23  21 22 23 24 25 26 27
+24 25 26 27 28        24 25 26 27 28 29 30  28 29 30
+                      31
+      mai 2014
+lu ma me je ve sa di
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28 29 30 31
+\end{lstlisting}
 \end{itemize}

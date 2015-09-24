@@ -9,11 +9,10 @@ destination : il s'agit soit un dossier, auquel cas le nom de fichier sera
 préservé, soit d'un chemin vers un fichier (qui sera écrasé si il existe
 déjà).
 
-\paragraph{} Afin de copier tout un dossier, le mode récursif de \texttt{cp}
-est utilisé, pour cela on ajoute l'option "-r" qui permettra la copie de tous
-les répertoires, sous-répertoires et fichiers contenus depuis la source jusqu'à
-la destination.  Sans ce modificateur, la commande cp omettra la copie de
-dossier.
+\paragraph{} Afin de copier tout un dossier, il faut copier les fichiers et les
+sous-dossiers qui sont dedans, c'est à dire copier de manière \emph{récursive}.
+On utilise alors l'option \texttt{-r} de \texttt{cp}. Sans ce modificateur, la
+commande cp omettra la copie de dossier.
 
 \subsubsection*{Exemples d'utilisation}
 
