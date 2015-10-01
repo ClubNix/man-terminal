@@ -112,6 +112,16 @@
 
 \renewcommand{\qedsymbol}{}
 
+\addto\captionsfrench{%
+	\renewcommand{\partname}[1]%
+	{Partie #1}%
+}
+
+%\renewcommand{\part}[1]{%
+	%\addcontentsline{toc}{part}{#1}
+	%{\Huge\bfseries#1}
+%}
+
 \newcommand{\petit}[1]{
 	\medskip \noindent
 	\begin{small}
@@ -121,7 +131,7 @@
 
 \begin{document}
 
-\title{Introduction aux commandes shell (Linux) basique}
+\title{Introduction aux commandes Linux basiques}
 \author{\includegraphics[scale=0.7]{clubnix}}
 \date{\url{https://github.com/ClubNix/man-terminal}}
 
@@ -152,31 +162,32 @@
 
 \setcounter{page}{1}
 
-\part{Presentation d'un environnement GNU/Linux}
+\part{Présentation d'un environnement GNU/Linux}
 
 \paragraph{}
 Le projet \textit{GNU/Linux} commence en 1983 lorsque Richard Stallman propose
-de développer un ensemble de logiciels libres, s'appelant le projet GNU, mais
-ce n'est qu'en 1992 après avoir fini la plupart des outils essentiels que Linus
+de développer un ensemble de logiciels libres, s'appelant le projet GNU. Ce
+n'est qu'en 1992 après avoir fini la plupart des outils essentiels que Linus
 Torvalds propose un kernel (le cœur d'un système d'exploitation),
 \textit{Linux}, et ceci permet donc de lancer un système exempt de tout
 logiciel propriétaire.
 
 \paragraph{}
 A l'heure actuelle, GNU/Linux est essentiellement utilisé en tant que serveur
-dans des sociétés comme Google, Amazon, Facebook, Twitter et bien d'autre.
+dans des sociétés comme Google, Amazon, Facebook, Twitter et bien d'autres.
 GNU/Linux est aussi la technologie utilisée dans les téléphones Android, dans
 beaucoup de machines comme les distributeurs de billets ou les télévisions, ou
-de manière générale un grand nombre de systèmes embarqués, mais aussi par des
-personnes qui l'utilisent comme ordinateur pour la vie courante.
+de manière générale un grand nombre de systèmes embarqués. Cependant, GNU/Linux
+est aussi utilisé par des personnes comme ordinateur pour la vie courante.
 
 \paragraph{}
 Pour la petite histoire, le logo de Linux n'est pas un pingouin mais un
 \textbf{manchot}, plus exactement un manchot pygmée, qui porte le nom de
-\textbf{Tux}. Linus est en effet revenu avec cette idée de mascotte après
-s'être fait mordre lors d'un voyage en Australie par cette même espèce de
-manchot et coupa court à la discussion qui se portait sur un requin.
+\textbf{Tux}. Linus est revenu après s'être fait mordre lors d'un voyage en
+Australie par cette espèce de manchot avec cette idée de mascotte et coupa
+court à la discussion qui se portait sur un requin.
 
+\newpage
 \part{Qu'est-ce que le terminal?}
 
 \paragraph{} Pour comprendre ce qu'est le terminal, il faut d'abord savoir
@@ -185,8 +196,7 @@ programmes en mode texte. Un inconvénient des programmes en mode texte: ils ont
 besoin d'un "support" où le texte va être affiché. On appelle ce support un
 terminal.
 
-\paragraph{} Pour lancer la bête, vous pouvez tester les différentes solutions
-suivantes:
+\paragraph{} Pour lancer la bête, vous pouvez tester les solutions suivantes:
 \begin{itemize}
 	\item Menu $\rightarrow$ barre de recherche $\rightarrow$ "terminal" (ou
 		"konsole" ou "gnome-terminal" ou "xfterm4" ou "xfce4-terminal")
@@ -199,11 +209,10 @@ suivantes:
 \end{itemize}
 
 \paragraph{} Le terminal peut vous faire peur et picoter les yeux au premier
-abord, mais n'ayez crainte. Commençons par ce picotement des yeux,
-en faisant un clic droit et en allant dans profils, préférences du profil vous
-pourrez changer la couleur pour quelque chose de moins agressif pour vos yeux,
-"blanc sur noir" ou "vert sur noir" (pour les plus geeks d'entre vous)
-plusieurs choses peuvent être configurées, je vous laisse les découvrir.
+abord, mais n'ayez crainte. Commençons par ce picotement des yeux, en faisant
+un clic droit et en allant dans profils, préférences du profil. Vous pourrez
+changer la couleur pour quelque chose de moins agressif. Plusieurs choses
+peuvent être configurées, je vous laisse les découvrir.
 
 \paragraph{} Ce que vous pouvez voir à partir de là est une ligne ressemblant à
 ceci :
@@ -217,6 +226,7 @@ user@pc ~ $
 	\includegraphics[scale=0.42]{Images/terminal}
 \end{center}
 
+\newpage
 \paragraph{} Le programme qui affiche du texte dans le terminal est ce qu'on
 appelle un \emph{Shell}, et il va vous permettre d'entrer des commandes
 GNU/Linux. Vous avez aussi l'affichage d'un certain nombre d'informations
@@ -246,11 +256,11 @@ terminal en tapant la commande \texttt{bash}).
 
 \paragraph{} En résumé, le Shell correspond au programme qui va interpréter et
 exécuter les commandes tapées à l'intérieur de votre terminal. Il est composé
-de texte, qui affiche des informations utiles, un d'un champ de texte qui vous
-permet d'entrer des commandes en tapant sur le clavier. C'est donc est
-l'interface minimale entre l'utilisateur et le système d'exploitation.
+de texte, qui affiche des informations utiles, et d'un champ de texte, qui vous
+permet d'entrer des commandes en tapant sur le clavier. C'est donc l'interface
+minimale entre l'utilisateur et le système d'exploitation.
 
-\paragraph{} Le Shell est exécuté à l'intérieur d'un terminal qui est une
+\paragraph{} Le Shell est exécuté à l'intérieur d'un terminal, qui est une
 application graphique qui permet de faire l'intermédiaire entre les programmes
 en mode texte et l'utilisateur.
 
@@ -266,7 +276,8 @@ en mode texte et l'utilisateur.
 		espace.
 \end{enumerate}
 
-\part{Chemins absolus et chemins relatifs}
+\newpage
+\part{Chemins (naviguer dans les dossiers)}
 
 \paragraph{} Un chemin, ou chemin d'accès (\emph{path} en anglais) représente
 tout simplement la position d'un fichier ou d'un dossier dans le système. Sous
@@ -332,19 +343,24 @@ spéciaux:
 
 \begin{itemize}
 	\item ``\texttt{\~}'' correspond au dossier personnel
-		(\texttt{/home/nom-d-utilisateur}), ainsi\\
-		\texttt{\~/Musique}\\
-		correspond à\\
-		\texttt{/home/nom-d-utilisateur/Musique}
-	\item ``\texttt{.}'' correspond au dossier actuel, donc\\
-		\texttt{Documents/./texte.txt}\\
-		correspond à\\
-		\texttt{Documents/texte.txt}
-	\item ``\texttt{..}'' correspond au dossier parent, donc\\
-		\texttt{/home/nom-d-utilisateur/Documents/../Téléchargements/cat.gif}\\
-		est équivalent à\\
-		\texttt{/home/nom-d-utilisateur/Téléchargements/cat.gif}
+		(\texttt{/home/nom-d-utilisateur}), ainsi
+	\item ``\texttt{.}'' correspond au dossier actuel\\
+	\item ``\texttt{..}'' correspond au dossier parent\\
 \end{itemize}
+
+\paragraph{Exemples:}~\\
+
+\begin{tabular}{|l|l|}
+	\hline
+	\textbf{Chemin} & \textbf{Équivalence}\\
+	\hline
+	\texttt{$\sim$/Musique} & \texttt{/home/nom-d-utilisateur/Musique}\\
+	\hline
+	\texttt{Documents/./texte.txt} & \texttt{Documents/texte.txt}\\
+	\hline
+	\texttt{Documents/../Téléchargements/cat.gif} & \texttt{Téléchargements/cat.gif}\\
+	\hline
+\end{tabular}
 
 \section{Caractères spéciaux}
 
@@ -367,10 +383,10 @@ il existe d'autres caractères spéciaux pour le shell qui devront être
 \paragraph{} Donc si un fichier s'appelle \texttt{Un nom trè\$ embêtant (mais
 peu probable)}, on devra écrire dans le \emph{prompt}:
 \texttt{Un\textbackslash{\textvisiblespace}nom\textbackslash{\textvisiblespace}trè\textbackslash\$\textbackslash\textvisiblespace
-embêtant\textbackslash{\textvisiblespace}\textbackslash(mais\textbackslash{\textvisiblespace}peu\textbackslash
+	embêtant\textbackslash{\textvisiblespace}\textbackslash(mais\textbackslash{\textvisiblespace}peu\textbackslash\textvisiblespace
 probable\textbackslash)}.
 
-\paragraph{} Un moyen d'éviter ceci est de mettre guillemets (simples ou
+\paragraph{} Un moyen d'éviter ceci est de mettre des guillemets (simples ou
 doubles) autour. Prenez garde tout de même car le symbole du dollar doit
 quand-même être échappé si l'on met des guillemets doubles. Pour notre exemple,
 cela donne:
@@ -381,16 +397,17 @@ cela donne:
 	\item \texttt{'Un nom trè\$ embêtant (mais peu probable)'}
 \end{itemize}
 
-\part{Commandes Basiques (débutant)}
+\newpage
+\part{Commandes Basiques}
 
 \section{Raccourcis utiles}
 
 \begin{description}
-	\item[Entrée]: la plus importante, lance votre commande
+	\item[Entrée]: le plus important, lance votre commande
 	\item[Flêche haut]: naviguer dans l'historique des commandes. Vous pourrez
-		ainsi gagner du temps et éviter de retaper toujours la même chose.
+		ainsi gagner du temps et éviter de toujours retaper la même chose.
 	\item[Tab]: touche de complétion. Vous permet de taper les quelques
-		premières lettres de votre commande, puis les compléter en appuyant sur
+		premières lettres de votre commande, puis la compléter en appuyant sur
 		la touche de tabulation. Si rien ne s'affiche la première fois que vous
 		appuyez sur la touche, c'est qu'il existe plusieurs possibilités de
 		complétion. Une seconde pression vous permettra d'afficher toutes les
@@ -404,6 +421,10 @@ cela donne:
 	\item[Ctrl+L]: nettoie l'écran.
 	\item[Ctrl+Shift+C]: Copie le texte sélectionné dans le presse-papier.
 	\item[Ctrl+Shift+V]: Colle le texte contenu dans le presse-papier.
+	\item[Ctrl+Z]: Mets la commande en pause. On expliquera plus tard le
+		fonctionnement. Au cas où vous appuyez sur \textbf{Ctrl+Z} par
+		inadvertance, sachez que pour la reprendre, il faut taper la commande
+		\texttt{fg}.
 \end{description}
 
 \section{Liste de commandes (formulaire)}
@@ -467,7 +488,7 @@ mv /tmp/foo /home/nom-d-utilisateur
 
 \end{description}
 
-\section{Details des commandes}
+\section{Détails des commandes}
 \input{Command/Debutant/man.tex}
 \input{Command/Debutant/cat.tex}
 \input{Command/Debutant/ls.tex}
@@ -482,7 +503,7 @@ mv /tmp/foo /home/nom-d-utilisateur
 un terminal,
 % obtenu avec cat .bash_history |cut -d" " -f 1 |sort |uniq -c |sort -n |tail
 Les maîtriser est essentiel pour une utilisation courante de votre terminal
-(surtout man), mais c'est seulement avec les commande intermédiaires que le
+(surtout man), mais c'est seulement avec les commandes intermédiaires qu'un
 gain de productivité pourra se faire ressentir.
 
 \newpage

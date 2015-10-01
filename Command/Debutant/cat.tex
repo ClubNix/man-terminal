@@ -10,29 +10,25 @@ directement sur le terminal.
 
 \begin{lstlisting}
 $ ls
-chaton.txt chat.c poulpe.exe
-$ cat chat.c
+texte.txt code.c image.png
+$ cat texte.txt
+Je suis le contenu du fichier texte!
+$ cat code.c texte.txt
 #include <stdio.h>
 
 int main(){
-	printf("oh, un chat!\n");
- return 0;
+	printf("Hello, World\n");
+	return 0;
 }
-$ cat chat.c chaton.txt
-#include <stdio.h>
-
-int main(){
-	printf("oh, un chat!\n");
- return 0;
-}
-Miaou
+Je suis le contenu du fichier texte!
 \end{lstlisting}
 
 \paragraph{} Attention toutefois: lors de son utilisation sur un fichier
 binaire (qui ne contient pas du texte classique), la commande s'exécutera bien.
 Cependant, le contenu du fichier est souvent trop gros pour votre terminal et
 inintelligible, et peut casser l'affichage de votre terminal. Cela signifie par
-exemple lorsque vous tapez des caractères, des symboles étranges apparaîtront.
+exemple que lorsque vous tapez des caractères, des symboles étranges
+apparaîtront.
 
 \paragraph{} Si par inadvertance cela vous arrivait, vous pourrez toujours
 essayer de taper "\emph{reset}" pour rétablir votre shell (il n'y a pas

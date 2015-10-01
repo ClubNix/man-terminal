@@ -5,15 +5,16 @@
 \paragraph{} Afin d'exécuter un programme, le shell doit comprendre que le
 programme se situe dans un dossier et non dans la liste des commandes
 installées.  Pour ce faire, on peut lui donner le chemin absolu ou relatif vers
-le logiciel, taper directement \emph{exec} sera cependant considéré comme une
+le logiciel. Taper directement \emph{exec} sera cependant considéré comme une
 commande à chercher dans une destination standard (là où se trouvent les autres
-commandes cat, ls\ldots).  On utilise donc le fichier spécial \emph{.},
-représentant le dossier courant, pour finalement obtenir \emph{./exec}
-signifiant donc \emph{"l'exécutable exec se situant dans le dossier courant"}.
+commandes \texttt{cat}, \texttt{ls}\ldots).  On utilise donc le fichier spécial
+\emph{.}, représentant le dossier courant, pour finalement obtenir
+\emph{./exec}, signifiant donc \emph{"l'exécutable exec se situant dans le
+	dossier courant"}.
 
 \subsubsection*{Exemple d'utilisation}
 \begin{lstlisting}
-$ ./poulpe.exe
-oh, un çhat!
+$ ./monExecutable
+Hello, World!
 $ 
 \end{lstlisting}

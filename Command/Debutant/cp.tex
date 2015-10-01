@@ -5,7 +5,7 @@
 \paragraph{} \texttt{cp} est une commande permettant de copier des fichiers.
 Cette commande prend en paramètres deux noms de fichier. Le premier est le
 fichier \emph{source}, fichier qui doit être copié. Le second est la
-destination : il s'agit soit un dossier, auquel cas le nom de fichier sera
+destination : il s'agit soit d'un dossier, auquel cas le nom de fichier sera
 préservé, soit d'un chemin vers un fichier (qui sera écrasé si il existe
 déjà).
 
@@ -18,22 +18,22 @@ commande cp omettra la copie de dossier.
 
 \begin{lstlisting}[caption=copie de fichier]
 ~/$ ls
-miaou.txt chat.c poulpe.exe
-~/$ cp miaou.txt chaton.txt
+texte.txt code.c image.png
+~/$ cp texte.txt texte2.txt
 ~/$ ls
-miaou.txt chaton.txt chat.c poulpe.exe
+texte.txt texte2.txt code.c image.png
 ~/$
 \end{lstlisting}
 
 \begin{lstlisting}[language=bash,caption=copie de dossier]
 ~/$ ls
-Chaton/
-~/$ ls Chaton/
-miaou.txt chat.c poulpe.exe
-~/$ cp -r Chaton/ Miaou/
+Dossier/
+~/$ ls Dossier/
+texte.txt code.c image.png
+~/$ cp -r Dossier/ Dossier2/
 ~/$ ls
-Chaton/ Miaou/
-~/$ ls Miaou/
-miaou.txt chat.c poulpe.exe
+Dossier/ Dossier2/
+~/$ ls Dossier2/
+texte.txt code.c image.png
 ~/$
 \end{lstlisting}
