@@ -1,27 +1,31 @@
-\subsection*{mv}
+\subsection{mv}
+
 \subsubsection*{Description}
-\emph{mv} sert à deplacer des fichiers, il peut aussi à l'aide de l'option \emph{-r} déplacer tout un dossier.
-Lors du déplacement, on peut aussi donner un nouveau nom au fichier, ainsi pour renommer un fichier, on le déplace au même endroit.
-Son utilisation est similaire à la commande \emph{cd}
+
+\paragraph{} \texttt{mv} sert à déplacer des fichiers, il peut aussi déplacer
+tout un dossier sans avoir besoin de rajouter d'options. Lors du déplacement,
+on peut aussi donner un nouveau nom au fichier. Ainsi pour renommer un fichier,
+on le déplace au même endroit. Son utilisation est similaire à la commande
+\texttt{cp} (hormis le \texttt{-r} qui n'est pas nécéssaire).
 
 \subsubsection*{Exemple d'utilisation}
 
 \begin{lstlisting}[caption=déplacement d'un fichier]
 $ ls
-miaou.txt chat.c poulpe.exe Chaton/
-$ ls Chaton/
+texte.txt code.c image.png Sous-Dossier/
+$ ls Sous-Dossier/
 
-$ mv miaou.txt Chaton/
+$ mv texte.txt Sous-Dossier/
 $ ls Chaton/
-miaou.txt
+texte.txt
 $ ls
-chat.c poulpe.exe
+code.c image.png Sous-Dossier/
 \end{lstlisting}
 
 \begin{lstlisting}[caption=renommer un fichier]
 $ ls
-miaou.txt chat.c poulpe.exe Chaton/
-$ mv miaou.txt chat.txt
+texte.txt code.c image.png Sous-Dossier/
+$ mv texte.txt citation.txt
 $ ls
-chat.txt chat.c poulpe.exe Chaton/
+citation.txt code.c image.png Sous-Dossier/
 \end{lstlisting}

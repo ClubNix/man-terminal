@@ -18,6 +18,7 @@
 %\usepackage{fourier}
 %\usepackage{utopia}
 %\usepackage{palatino}
+\usepackage{microtype}
 
 \usepackage{lmodern}
 %% ajouter fonte petite capitale grasse à lmodern avec celle de computer modern %%
@@ -41,6 +42,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{multicol}
+\usepackage{dirtree}
 \definecolor{grey}{rgb}{0.96,0.96,0.96}
 \definecolor{grey2}{rgb}{0.3,0.3,0.3}
 
@@ -120,7 +122,7 @@
 
 \begin{document}
 
-\title{Introduction aux commandes shell (Linux) basique}
+\title{Introduction aux commandes Linux basiques}
 \author{\includegraphics[scale=0.7]{clubnix}}
 \date{\url{https://github.com/ClubNix/man-terminal}}
 
@@ -129,158 +131,414 @@
 
 \vfill
 \pagebreak
+\newpage
+\thispagestyle{empty}
+~
 
 %\tableofcontents
-\newpage
+
 \strut\thispagestyle{empty}
 \vfill
 \pagebreak
 \tableofcontents
 \strut\thispagestyle{empty}
+
 %\setcounter{page}{0}
+\vfill
+\pagebreak
 \newpage
+\thispagestyle{empty}
+~
+\pagebreak
+
 \setcounter{page}{1}
 
-\section{Presentation d'un environnement GNU/Linux}
-Le projet \textit{GNU/Linux} commence en 1983 lorsque Richard Stallman commence le projet GNU, proposant de développer un ensemble de logiciels libres, mais ce n'est qu'en 1992 après des avoir fini la plupart des outils essentiels (gcc, emacs, les cores utils ...) sauf leurs kernel \textit{Hurd} que Linus en propose un, \textit{Linux}, et permet de lancer un système exempt de tout logiciel propriétaire.
-A l'heure actuelle, GNU/Linux est essentiellement utilisé en tant que serveur et par quelques geeks qui souhaitent avoir un contrôle sur ce qu'ils exécutent sur leur ordinateur. La philosophie initiale de Stallman commence à toucher un plus grand public (avec notamment les administrations qui commencent à virer tous les produits Micro\$oft).
+\section{Présentation d'un environnement GNU/Linux}
 
-Pour la petite histoire, le logo de Linux n'est pas un pingouin mais un \textbf{manchot}, plus exactement un manchot pygmée \url{https://fr.wikipedia.org/wiki/Manchot_pygmée}. Linus est en effet revenu avec cette idée de mascotte après s'être fait mordre lors d'un voyage en Australie par cette même espèce de manchot et coupa court à la discussion qui se portait sur un requin.
+\paragraph{}
+Le projet \textit{GNU/Linux} commence en 1983 lorsque Richard Stallman propose
+de développer un ensemble de logiciels libres, s'appelant le projet GNU. Ce
+n'est qu'en 1992 après avoir fini la plupart des outils essentiels que Linus
+Torvalds propose un kernel (le cœur d'un système d'exploitation),
+\textit{Linux}, et ceci permet donc de lancer un système exempt de tout
+logiciel propriétaire.
 
-\section{Qu'est-ce que le Shell}
-Le Shell, ou coquillage correspond à l'interpréteur de commande utilisé à l'intérieur de votre terminal.
-C'est l'interface minimale entre l'utilisateur et le système d'exploitation.
-Il en existe de toutes sortes (bash, tcsh, sh, ksh, zsh \dots). Tous permettent d'exécuter des commandes, programmes <insert text here>.
-Dans le monde réel, \emph{bash} est l'interpréteur le plus courant, cependant pour quelque raison obscure, vous commencerez par défaut votre aventure à l'ESIEE avec \emph{tcsh}.
-Très peu convivial, nous supposerons pour la suite que vous utilisez bash (vous pouvez lancer le shell \emph{bash} à l'intérieur de \emph{tcsh} en tapant la commande <<~bash~>> à l'affichage de votre \emph{prompt}).
-Votre terminal est donc composé d'une fenêtre, permettant d'afficher un historique de commandes, de menus pour configurer les couleurs, la police\dots, et enfin du \emph{shell}, l'interpréteur qui est lancé automatiquement.
-Ce que vous pouvez voir à partir de là est une ligne ressemblant à ceci :
+\paragraph{}
+A l'heure actuelle, GNU/Linux est essentiellement utilisé en tant que serveur
+dans des sociétés comme Google, Amazon, Facebook, Twitter et bien d'autres.
+GNU/Linux est aussi la technologie utilisée dans les téléphones Android, dans
+beaucoup de machines comme les distributeurs de billets ou les télévisions, ou
+de manière générale un grand nombre de systèmes embarqués. Cependant, GNU/Linux
+est aussi utilisé par des personnes comme ordinateur pour la vie courante.
+
+\paragraph{}
+Pour la petite histoire, le logo de Linux n'est pas un pingouin mais un
+\textbf{manchot}, plus exactement un manchot pygmée, qui porte le nom de
+\textbf{Tux}. Linus est revenu après s'être fait mordre lors d'un voyage en
+Australie par cette espèce de manchot avec cette idée de mascotte et coupa
+court à la discussion qui se portait sur un requin.
+
+\newpage
+\section{Qu'est-ce que le terminal?}
+
+\paragraph{} Pour comprendre ce qu'est le terminal, il faut d'abord savoir
+qu'il y a deux catégories de programmes: les programmes graphiques et les
+programmes en mode texte. Un inconvénient des programmes en mode texte: ils ont
+besoin d'un ``support'' où le texte va être affiché. On appelle ce support un
+terminal.
+
+\paragraph{} Pour lancer la bête, vous pouvez tester les solutions suivantes:
+\begin{itemize}
+	\item Menu $\rightarrow$ barre de recherche $\rightarrow$ "terminal" (ou
+		"konsole" ou "gnome-terminal" ou "xfterm4" ou "xfce4-terminal")
+	\item application $\rightarrow$ accessoires $\rightarrow$ terminal
+	\item <super> $\rightarrow$ taper "terminal"
+	\item Alt + f2 $\rightarrow$ taper "gnome-terminal"
+	\item Ctrl+Alt+T
+	\item sinon le logo à rechercher ressemble à ça:
+		\includegraphics[scale=0.7]{Images/termIcon}
+\end{itemize}
+
+\paragraph{} Le terminal peut vous faire peur et picoter les yeux au premier
+abord, mais n'ayez crainte. Commençons par ce picotement des yeux, en faisant
+un clic droit et en allant dans profils, préférences du profil. Vous pourrez
+changer la couleur pour quelque chose de moins agressif. Plusieurs choses
+peuvent être configurées, je vous laisse les découvrir.
+
+\paragraph{} Ce que vous pouvez voir à partir de là est une ligne ressemblant à
+ceci :
 \begin{lstlisting}
-club@nix ~ $
+user@pc ~ $
 \end{lstlisting}
+
 %PS1="\[\033[01;32m\]club@nix\[\033[01;34m\] \w \$\[\033[00m\] "
+
 \begin{center}
-\includegraphics[scale=0.42]{Images/terminal}
+	\includegraphics[scale=0.42]{Images/terminal}
 \end{center}
-Vous avez donc un affichage d'un certain nombre d'informations à travers votre \emph{prompt}.
+
+\newpage
+\paragraph{} Le programme qui affiche du texte dans le terminal est ce qu'on
+appelle un \emph{Shell}, et il va vous permettre d'entrer des commandes
+GNU/Linux. Vous avez aussi l'affichage d'un certain nombre d'informations
+utiles:
+
 \begin{enumerate}
-\item[club@nix] correspond à votre login (nom d'utilisateur, ici <<~club~>>) suivi du nom de la machine (ici <<~nix~>>) sur laquelle vous vous trouvez, le tout est séparé par le caractère <<~@~>>.
-\item[$\sim$] Vient ensuite votre dossier courant suivit du caractère "\$" (le dossier $\sim$ est un raccourci vers \emph{/home/club/}).
-\item[\$] Enfin la ligne de commande, vous permettant de taper des... commandes. Le dollar signifie juste que vous avez la main (vous pouvez tapez vos commandes).
+	\item[user@pc] correspond à votre login (nom d'utilisateur, ici
+		<<~user~>>) suivi du nom de la machine (ici <<~pc~>>) sur laquelle
+		vous vous trouvez, le tout est séparé par le caractère <<~@~>>.
+	\item[$\sim$] est le dossier courant suivit du caractère "\$"
+		(le dossier $\sim$ est un raccourci vers votre dossier personnel
+		\emph{/home/user/}).
+	\item[\$] Le dollar signifie juste que vous êtes un utilisateur normal (à
+		l'opposition du \emph{\#} qui signifie que vous êtes
+		super-utilisateur).
 \end{enumerate}
 
+\paragraph{} Il existe toutes sortes de Shell (bash, tcsh, sh, ksh, zsh\dots)
+qui ont chacun des fonctionnalités différentes, mais tous permettent d'exécuter
+des commandes ou des programmes. Dans le monde réel, \emph{bash} est
+l'interpréteur le plus courant, cependant pour une raison obscure, vous
+commencerez par défaut votre aventure à l'ESIEE avec \emph{tcsh}.
+
+\paragraph{} Comme \emph{tcsh} est très peu convivial, nous supposerons par la
+suite que vous utilisez bash (vous pouvez lancer \emph{bash} à l'intérieur du
+terminal en tapant la commande \texttt{bash}).
+
+\paragraph{} En résumé, le Shell correspond au programme qui va interpréter et
+exécuter les commandes tapées à l'intérieur de votre terminal. Il est composé
+de texte, qui affiche des informations utiles, et d'un champ de texte, qui vous
+permet d'entrer des commandes en tapant sur le clavier. C'est donc l'interface
+minimale entre l'utilisateur et le système d'exploitation.
+
+\paragraph{} Le Shell est exécuté à l'intérieur d'un terminal, qui est une
+application graphique qui permet de faire l'intermédiaire entre les programmes
+en mode texte et l'utilisateur.
+
 \section{Notation}
+
 \begin{enumerate}
-\item[\^{}] correspond à la touche <<~\emph{Ctrl}~>>, \^{}C, signfie donc qu'il faut appuyer en même temps sur la touche "Ctrl" et C (deux touches sont enfoncées).
-\item [<super>] correspond à la touche "super" honteusement surmontée par un logo windows sur la plupart des claviers.
-\item [M-] correspond à la touche "Meta", le "alt" à côté de la touche espace.
+	\item[\^{}] correspond à la touche <<~\emph{Ctrl}~>>, \^{}C, signfie donc
+		qu'il faut appuyer en même temps sur la touche "Ctrl" et C (deux
+		touches sont enfoncées).
+	\item [<super>] correspond à la touche "super" honteusement surmontée par
+		un logo windows sur la plupart des claviers.
+	\item [M-] correspond à la touche "Meta", le "alt" à côté de la touche
+		espace.
 \end{enumerate}
 
 \newpage
-\section{Commandes Basiques (débutant)}
-\noindent Voici votre première expérience du terminal!\\
-Pour lancer la bête, vous pouvez tester les différentes solutions suivantes:
+\part{Chemins (naviguer dans les dossiers)}
+
+\paragraph{} Un chemin, ou chemin d'accès (\emph{path} en anglais) représente
+tout simplement la position d'un fichier ou d'un dossier dans le système. Sous
+GNU/Linux, les chemins sont séparés par des barres obliques orientés vers la
+droite: ``\texttt{/}''.  Cela explique le fait que ce caractère soit interdit
+dans les noms de fichiers et dossiers sous GNU/Linux.
+
+\paragraph{Exemples:}
+
 \begin{itemize}
-\item Menu -> barre de recherche -> "terminal" (ou "konsole" ou "gnome-terminal" ou "xfterm4" ou "xfce4-terminal")
-\item Alt + f2 -> taper "terminal"
-\item application -> accessoires -> terminal
-\item <super>  -> taper "terminal"
-\item \^{}M-t
-\item sinon le logo à rechercher ressemble à ça:  \includegraphics[scale=0.7]{Images/termIcon}
+	\item \texttt{/home/nom-d-utilisateur/Documents/Bla.pdf}
+	\item \texttt{Musique/thing.mp3}
+	\item \texttt{\~{}/Images/wallpaper.png}
+	\item \texttt{../man-terminal.pdf}
 \end{itemize}
-Il peut vous faire peur et picoter les yeux mais n'ayez crainte. Tout d'abord commençons par ce picotement des yeux, en faisant un clic droit et en allant dans profils, préférences du profil vous pourrez changer la couleur pour quelque chose de moins agressif pour vos yeux, "blanc sur noir" ou "vert sur noir" (pour les plus geeks d'entre vous) plusieurs choses peuvent être configurées, je vous laisse les découvrir.
 
-Enfin, notez que vous trouverez avec ce document un dossier \emph{Exemple} contenant les exemples cités.
+\section{Chemins absolus}
 
-\subsection{Raccourcis utiles}
+\paragraph{} Les chemins absolus sont des chemins qui prennent comme point de
+départ la racine du système (\emph{root} en anglais) dont tout les fichiers et
+dossiers sont des descendants. Un chemin relatif commencera toujours par un
+\emph{slash} (``\texttt{/}'').
+
+\paragraph{} Ainsi, \texttt{/home/nom-d-utilisateur/Documents/Bla.pdf}
+représente le fichier \texttt{Bla.pdf} qui est situé dans le dossier
+\texttt{Documents}, lui-même étant dans le dossier \texttt{nom-d-utilisateur},
+lui-même contenu dans le dossier \texttt{home} qui est un descendant direct du
+dossier racine. Cela donne donc (en omettant les autres dossiers et fichiers):
+\\
+\dirtree{%
+	.1 / (root).
+		.2 home.
+			.3 nom-d-utilisateur.
+				.4 Documents.
+					.5 Bla.pdf.
+}
+
+\section{Chemins relatifs}
+
+\paragraph{} Les chemins relatifs, à la différence des chemins absolus,
+prennent en compte le dossiers dans lequel on est. Ainsi, un chemin relatif ne
+mènera pas au même fichier selon où l'on est. Ces types de chemins sont très
+utiles pour les fainéants qui ne veulent pas tout re-taper depuis le dossier
+racine. Les chemins relatifs ne commencent pas par un \emph{slash}.
+
+\paragraph{} Par exemple, \texttt{Musique/thing.mp3} représente le fichier
+\texttt{thing.mp3} qui est dans le dossier \texttt{Musique} lui même qui est
+dans le dossier actuel. En supposant que le dossier actuel soit le dossier
+personnel (\texttt{/home/nom-d-utilisateur}), cela nous donne:
+\\
+\dirtree{%
+	.1 / (root).
+		.2 home.
+			.3 nom-d-utilisateur (dossier actuel).
+				.4 Musique.
+					.5 thing.mp3.
+}
+
+\section{Chemins spéciaux}
+
+\paragraph{} Parmis les chemins sous GNU/Linux, il y a quelques chemins
+spéciaux:
+
+\begin{itemize}
+	\item ``\texttt{\~}'' correspond au dossier personnel
+		(\texttt{/home/nom-d-utilisateur}), ainsi
+	\item ``\texttt{.}'' correspond au dossier actuel\\
+	\item ``\texttt{..}'' correspond au dossier parent\\
+\end{itemize}
+
+\paragraph{Exemples:}~\\
+
+\begin{tabular}{|l|l|}
+	\hline
+	\textbf{Chemin} & \textbf{Équivalence}\\
+	\hline
+	\texttt{$\sim$/Musique} & \texttt{/home/nom-d-utilisateur/Musique}\\
+	\hline
+	\texttt{Documents/./texte.txt} & \texttt{Documents/texte.txt}\\
+	\hline
+	\texttt{Documents/../Téléchargements/cat.gif} & \texttt{Téléchargements/cat.gif}\\
+	\hline
+\end{tabular}
+
+\section{Caractères spéciaux}
+
+\paragraph{} Sous GNU/Linux, le seul caractère présent sur le clavier non
+autorisé dans les noms de fichiers et dossiers est le \emph{slash}. Cependant
+il existe d'autres caractères spéciaux pour le shell qui devront être
+\emph{échappés}, ce qui veut dire qu'il devront être précédés d'un
+\emph{antislash} (``\texttt{\textbackslash}''). Les plus utilisés sont:
+
+\begin{itemize}
+	\item \textvisiblespace~(l'espace)
+	\item \texttt{"}
+	\item \texttt{'}
+	\item \texttt{!}
+	\item \texttt{\#}
+	\item \texttt{\$}
+	\item \texttt{(}, \texttt{)}, \texttt{[}, \texttt{]}, \texttt{\{}, \texttt{\}}
+\end{itemize}
+
+\paragraph{} Donc si un fichier s'appelle \texttt{Un nom trè\$ embêtant (mais
+peu probable)}, on devra écrire dans le \emph{prompt}:
+\texttt{Un\textbackslash{\textvisiblespace}nom\textbackslash{\textvisiblespace}trè\textbackslash\$\textbackslash\textvisiblespace
+	embêtant\textbackslash{\textvisiblespace}\textbackslash(mais\textbackslash{\textvisiblespace}peu\textbackslash\textvisiblespace
+probable\textbackslash)}.
+
+\paragraph{} Un moyen d'éviter ceci est de mettre des guillemets (simples ou
+doubles) autour. Prenez garde tout de même car le symbole du dollar doit
+quand-même être échappé si l'on met des guillemets doubles. Pour notre exemple,
+cela donne:
+\\
+\begin{itemize}
+	\item \texttt{"Un nom trè\textbackslash\$ embêtant (mais peu probable)"}\\
+	ou
+	\item \texttt{'Un nom trè\$ embêtant (mais peu probable)'}
+\end{itemize}
+
+\newpage
+\part{Commandes Basiques}
+
+\section{Raccourcis utiles}
+
 \begin{description}
-\item[Entrée]: la plus importante, lance votre commande
-\item[Flêche haut]: naviguer dans l'historique des commandes. Vous pourrez ainsi gagner du temps et éviter de retaper tojours la même chose
-\item[Tab]: touche de complétion. Vous permet de taper les quelques premières lettres de votre commande, puis de les compléter. Si rien ne s'affiche la première fois que vous appuyez sur la touche, c'est qu'il existe plusieurs possibilités de complétion. Une seconde pression vous permettra d'afficher toutes les complétions possibles.
-\item[Ctrl + Z]: pause la commande en cours.
-\item[Ctrl + C]: arrête la commande en cours, annule l'opération en cours et recommence avec une nouvelle ligne. Très utile si vous voulez annuler l'exécution d'un programme qui boucle de manière infinie, ou si vous vous rendez compte que vous êtes en train d'écrire n'importe quoi.
-\item[Ctrl+L]: nettoie l'écran
+	\item[Entrée]: le plus important, lance votre commande
+	\item[Flêche haut]: naviguer dans l'historique des commandes. Vous pourrez
+		ainsi gagner du temps et éviter de toujours retaper la même chose.
+	\item[Tab]: touche de complétion. Vous permet de taper les quelques
+		premières lettres de votre commande, puis la compléter en appuyant sur
+		la touche de tabulation. Si rien ne s'affiche la première fois que vous
+		appuyez sur la touche, c'est qu'il existe plusieurs possibilités de
+		complétion. Une seconde pression vous permettra d'afficher toutes les
+		complétions possibles.
+	% TODO: move that to job control section
+	% \item[Ctrl + Z]: pause la commande en cours.
+	\item[Ctrl + C]: arrête la commande en cours et recommence avec une
+		nouvelle ligne. Très utile si vous voulez annuler l'exécution d'un
+		programme qui boucle de manière infinie, ou si vous vous rendez compte
+		que vous êtes en train d'écrire n'importe quoi.
+	\item[Ctrl+L]: nettoie l'écran.
+	\item[Ctrl+Shift+C]: Copie le texte sélectionné dans le presse-papier.
+	\item[Ctrl+Shift+V]: Colle le texte contenu dans le presse-papier.
+	\item[Ctrl+Z]: Mets la commande en pause. On expliquera plus tard le
+		fonctionnement. Au cas où vous appuyez sur \textbf{Ctrl+Z} par
+		inadvertance, sachez que pour la reprendre, il faut taper la commande
+		\texttt{fg}.
 \end{description}
 
-\subsection{Liste de commandes (formulaire)}
+\section{Liste de commandes (formulaire)}
+
+\paragraph{} Voici donc la liste des commandes qui seront abordées plus en
+détail par la suite.
+
 \begin{description}
-\item[man] \emph{reference \textbf{man}uals} affiche un manuel sur une commande, fonction, bibliothèque (essayez "man man").
+\item[man]: \emph{reference \textbf{man}uals} affiche un manuel sur une
+	commande, une fonction, ou une bibliothèque.
+
   \begin{lstlisting}
 # Manuel d'utilisation de la command man
 man man
-
-# Fail
-man woman
   \end{lstlisting}
 
-\item[cat] \emph{con\textbf{cat}enate files} affiche un fichier sur l'entrée standard.
+\item[cat]: \emph{con\textbf{cat}enate files} affiche un ou plusieurs fichiers
+	sur le terminal.
+
   \begin{lstlisting}
 cat plop.txt
   \end{lstlisting}
 
-\item[ls] \emph{\textbf{l}i\textbf{s}t directory contents} permet d'afficher le contenu d'un répertoire.
+\item[ls]: \emph{\textbf{l}i\textbf{s}t directory contents} permet d'afficher
+	le contenu d'un répertoire.
+
   \begin{lstlisting}
-ls -lah
+ls
   \end{lstlisting}
 
-\item[cd] \emph{\textbf{c}hange \textbf{d}irectory} permet de naviguer à travers les répertoires.
+\item[cd]: \emph{\textbf{c}hange \textbf{d}irectory} permet de naviguer à
+	travers les répertoires.
+
   \begin{lstlisting}
 cd /usr/src/linux
   \end{lstlisting}
 
-\item[cp] \emph{\textbf{c}o\textbf{p}y files} copie un fichier.
+\item[touch]: crée un fichier vide.
+
+  \begin{lstlisting}
+touch monFichier
+  \end{lstlisting}
+
+\item[cp]: \emph{\textbf{c}o\textbf{p}y files} copie un fichier ou un dossier.
+
   \begin{lstlisting}
 # Pour un fichier
-cp /tmp/plop.txt /home/trax/
-
-# Pour un  répertoire
-cp -r /tmp/foo /home/trax
+cp /tmp/plop.txt /home/nom-d-utilisateur/
   \end{lstlisting}
+%# Pour un  répertoire
+%cp -r /tmp/foo /home/nom-d-utilisateur
+  %\end{lstlisting}
 
-\item[mv] \emph{\textbf{m}o\textbf{v}e file} déplace un fichier.
+\item[mv]: \emph{\textbf{m}o\textbf{v}e file} déplace un fichier ou un dossier.
+
   \begin{lstlisting}
-mv /tmp/foo /home/trax
+mv /tmp/foo /home/nom-d-utilisateur
   \end{lstlisting}
 
-\item[./<exec>] lance le script/programme \emph{<exec>}
+\item[rm]: \emph{\textbf{r}e\textbf{m}ove} supprime un fichier ou dossier.
+
+  \begin{lstlisting}
+# Pour un fichier
+rm monFichier
+  \end{lstlisting}
+
+\item[./<exec>]: lance le script/programme \emph{<exec>} qui se trouve dans le
+	dossier actuel.
+
   \begin{lstlisting}
 # Pour lancer a.out
 ./a.out
   \end{lstlisting}
+
 \end{description}
 
-\subsection{Details des commandes}
+\section{Détails des commandes}
+
 \input{Command/Debutant/man.tex}
 \input{Command/Debutant/cat.tex}
 \input{Command/Debutant/ls.tex}
 \input{Command/Debutant/cd.tex}
+\input{Command/Debutant/touch.tex}
 \input{Command/Debutant/cp.tex}
 \input{Command/Debutant/mv.tex}
+\input{Command/Debutant/rm.tex}
 \input{Command/Debutant/exec.tex}
 
-Ces commandes correspondent aux commandes les plus utilisées dans un terminal,
+\vspace{7em}
+
+\paragraph{} Ces commandes correspondent aux commandes les plus utilisées dans
+un terminal,
 % obtenu avec cat .bash_history |cut -d" " -f 1 |sort |uniq -c |sort -n |tail
-Les maîtriser est essentiel pour une utilisation courante de votre terminal (surtout man), mais c'est seulement après que les commandes amusantes arrivent.
+Les maîtriser est essentiel pour une utilisation courante de votre terminal
+(surtout man), mais c'est seulement avec les commandes intermédiaires qu'un
+gain de productivité pourra se faire ressentir.
 
 \newpage
 
-\section{Liste de commande étendue (intermédiaire)}
+\part{Commandes étendues (intermédiaire)}
+
+\section{Liste de commande étendue (formulaire)}
 \begin{enumerate}
-\item[redirection de flux] Permet de rediriger la sortie d'une commande dans une autre commande.
-\item[gcc] \emph{\textbf{G}nu \textbf{C} \textbf{C}ompiler}  génère des exécutables à partir de fichiers source C.
-\item[make] Utilitaire pour le maintien d'un groupe de programmes.
-\item[du] \emph{\textbf{d}isk u\textbf{u}sage} affiche des statistiques de l'utilisation des disques (espaces utilisés par les fichiers).
-\item[df] Affiche des statistiques d'utilisation des systèmes de fichiers (espace libre restant).
-\item[touch] Met à jour la date de modification d'un fichier.
-\item[find] Recherche des fichiers.
-\item[locate] Recherche des fichiers dans un index.
-\item[chmod] Modifie les permissions d'un fichier.
-\item[chown] Modifie le propriétaire d'un fichier.
-\item[kill] Envoie un signal à un processus.
-\item[nano] Éditeur de texte léger (en console).
-\item[tar] Compresse des fichiers.
-\item[wget] Outil de téléchargement très complet.
-\item[grep] \emph{\textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint} recherche dans un fichier.
+	\item[redirection de flux]: Permet de rediriger la sortie d'une commande
+		dans une autre commande.
+	\item[gcc]: \emph{\textbf{G}nu \textbf{C} \textbf{C}ompiler}  génère des
+		exécutables à partir de fichiers source C.
+	\item[make]: Utilitaire pour le maintien d'un groupe de programmes.
+	\item[du]: \emph{\textbf{d}isk u\textbf{u}sage} affiche des statistiques de
+		l'utilisation des disques (espaces utilisés par les fichiers).
+	\item[df]: Affiche des statistiques d'utilisation des systèmes de fichiers
+		(espace libre restant).
+	\item[touch]: Met à jour la date de modification d'un fichier.
+	\item[find]: Recherche des fichiers.
+	\item[locate]: Recherche des fichiers dans un index.
+	\item[chmod]: Modifie les permissions d'un fichier.
+	\item[chown]: Modifie le propriétaire d'un fichier.
+	\item[kill]: Envoie un signal à un processus.
+	\item[nano]: Éditeur de texte léger (en console).
+	\item[tar]: Compresse des fichiers.
+	\item[wget]: Outil de téléchargement très complet.
+	\item[grep]: \emph{\textbf{g}lobally search a \textbf{r}egular
+			\textbf{e}xpression and \textbf{p}rint} recherche dans un fichier.
 \end{enumerate}
 %TODO regexp simple, logiciel sympa (tmux, mocp, lua/bash/python),
 
@@ -296,24 +554,34 @@ Les maîtriser est essentiel pour une utilisation courante de votre terminal (su
 \input{Command/Intermediaire/tar.tex}
 \input{Command/Intermediaire/touch.tex}
 \input{Command/Intermediaire/wget.tex}
+
 \newpage
 
+\part{Commandes pour experts}
 
-\section{Liste de commandes (expert)}
+\section{Liste de commandes expertes (formulaire)}
 \begin{enumerate}
-\item[mount] monter () des systèmes de fichiers (\~{}partition).
-\item[ncdu] du en mode "graphique" (ncurse).
-\item[halt/reboot] éteindre et redémarrer son ordinateur.
-\item[find] recherche étendu sur son système.
-\item[ps] \emph{\textbf{p}rocess \textbf{s}nap} affiche la liste des processus lancés.
-\item[awk] langage pour appliquer des pattern sur des pattern.
-\item[sed] \emph{\textbf{s}tream \textbf{ed}itor} permet d'appliquer des regexp de substitution sur des fichiers.
-\item[ssh] \emph{\textbf{s}ecure \textbf{sh}ell} lance un shell sur une machine distante de manière sécurisée.
-\item[git] logiciel de versionnement simple et rapide.
-\item[usermod] \emph{\textbf{user} \textbf{mod}ify} gère les comptes utilisateurs.
-\item[groupmod] \emph{\textbf{group} \textbf{mod}ify} gère les groupes utilisateurs.
-\item[ifconfig] \emph{\textbf{i}nter\textbf{f}ace \textbf{config}uration} gestion des interfaces réseaux.
-\item[grep] \emph{\textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint} recherche de pattern dans un fichier.
+	\item[mount]: monter () des systèmes de fichiers (\~{}partition).
+	\item[ncdu]: \lstinline'du' en mode ``graphique'' (ncurse).
+	\item[halt/reboot]: éteindre et redémarrer son ordinateur.
+	\item[find]: recherche étendu sur son système.
+	\item[ps]: \emph{\textbf{p}rocess \textbf{s}nap} affiche la liste des
+		processus lancés.
+	\item[awk]: langage pour appliquer des pattern sur des pattern.
+	\item[sed]: \emph{\textbf{s}tream \textbf{ed}itor} permet d'appliquer des
+		regexp de substitution sur des fichiers.
+	\item[ssh]: \emph{\textbf{s}ecure \textbf{sh}ell} lance un shell sur une
+		machine distante de manière sécurisée.
+	\item[git]: logiciel de versionnement simple et rapide.
+	\item[usermod]: \emph{\textbf{user} \textbf{mod}ify} gère les comptes
+		utilisateurs.
+	\item[groupmod]: \emph{\textbf{group} \textbf{mod}ify} gère les groupes
+		utilisateurs.
+	\item[ifconfig]: \emph{\textbf{i}nter\textbf{f}ace \textbf{config}uration}
+		gestion des interfaces réseaux.
+	\item[grep]: \emph{\textbf{g}lobally search a \textbf{r}egular
+			\textbf{e}xpression and \textbf{p}rint} recherche de pattern dans
+		un fichier.
 \end{enumerate}
 %TODO un peu de réseaux? services,
 %TODO dossier de base (/etc/, /var/, /home/, /mnt/)

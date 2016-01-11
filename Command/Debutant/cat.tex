@@ -1,23 +1,36 @@
-\subsection*{cat}
+\subsection{cat}
 \subsubsection*{Description}
-\emph{cat} est une commande permettant d'afficher du texte sur l'entrée standard.
-Elle prend en entrée un fichier: texte, code source, script... pour l'afficher directement sur le terminal.
 
-Attention toutefois : lors de son utilisation sur un fichier binaire, la commande s'exécutera bien. Cependant, le contenu du fichier est souvent trop gros pour votre terminal, et la suite de caracteres ASCII aléatoires à laquelle il correspond cassera votre terminal lorsque cat essaiera de l'afficher.
-Si par inadvertance cela vous arrivait, vous pouvez toujours essayer de taper "reset" pour rétablir votre shell (il n'y a pas d'inquiétude à avoir si vous ne voyez pas la commande "reset" s'afficher, les caractères tapés sont bien pris en compte).
-
+\paragraph{} \texttt{cat} est une commande permettant d'afficher le contenu d'un
+ou plusieurs fichiers dans le terminal. Elle prend donc comme paramètre un, ou
+une liste de fichiers: texte, code source, script\ldots pour l'afficher
+directement sur le terminal.
 
 \subsubsection*{Exemple d'utilisation}
 
 \begin{lstlisting}
 $ ls
-chaton.txt chat.c poulpe.exe
-$ cat chat.c
+texte.txt code.c image.png
+$ cat texte.txt
+Je suis le contenu du fichier texte!
+$ cat code.c texte.txt
 #include <stdio.h>
 
 int main(){
-	printf("oh, un chat!\n");
- return 0;
+	printf("Hello, World\n");
+	return 0;
 }
-$
+Je suis le contenu du fichier texte!
 \end{lstlisting}
+
+\paragraph{} Attention toutefois: lors de son utilisation sur un fichier
+binaire (qui ne contient pas du texte classique), la commande s'exécutera bien.
+Cependant, le contenu du fichier est souvent trop gros pour votre terminal et
+inintelligible, et peut casser l'affichage de votre terminal. Cela signifie par
+exemple que lorsque vous tapez des caractères, des symboles étranges
+apparaîtront.
+
+\paragraph{} Si par inadvertance cela vous arrivait, vous pourrez toujours
+essayer de taper ``\texttt{reset}'' pour rétablir votre shell (il n'y a pas
+d'inquiétude à avoir si vous ne voyez pas la commande ``\texttt{reset}''
+s'afficher, les caractères tapés seront bien pris en compte).

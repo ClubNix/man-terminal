@@ -1,0 +1,18 @@
+\subsection{touch}
+\subsection*{Description}
+
+\paragraph{} À l'origine, \texttt{touch} a été créé pour mettre la date de
+dernière modification d'un fichier à la date actuelle. Cependant, le fait
+d'appeler cette commande avec en paramètre un fichier non-existant crée le
+fichier, si bien que c'est devenu l'utilisation principale de cette commande.
+On utilise donc \texttt{touch} pour créer un fichier vide.
+
+\subsubsection*{Exemple d'utilisation}
+
+\begin{lstlisting}
+$ ls
+texte.txt code.c image.png
+$ touch test
+$ ls
+test texte.txt code.c image.png
+\end{lstlisting}

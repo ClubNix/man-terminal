@@ -1,0 +1,29 @@
+\subsection{rm}
+\subsubsection*{Description}
+
+\paragraph{} \texttt{rm} est une commande permettant de supprimer un fichier ou
+un dossier. Chaque paramètre de cette commande sera donc un fichier ou dossier
+à supprimer. Comme pour \texttt{cp}, l'option \texttt{-r} permet de supprimer un
+dossier ainsi que tous les fichiers et sous-dossiers inclus dedans.
+
+\subsection*{Exemple d'utilisation}
+
+\begin{lstlisting}
+$ ls
+test.txt texte.txt code.c image.png Sous-Dossier/
+$ rm test.txt
+$ ls
+texte.txt code.c image.png Sous-Dossier/
+$ rm Sous-Dossier
+rm: impossible de supprimer "test": est un dossier
+$ rm -r Sous-Dossier
+$ ls
+texte.txt code.c image.png
+\end{lstlisting}
+
+\paragraph{Attention:} la commande \texttt{rm} ne va pas vous prevenir des
+fichiers qu'il va supprimer ni ne va pas les placer dans la corbeille. Une fois
+supprimés ces fichiers ne sont pas récupérables. Si vous voulez que \texttt{rm}
+vous préviens et vous demande avant de supprimer les fichiers passé en
+arguments, vous pouvez utiliser l'option \texttt{-i} pour
+\emph{\textbf{i}nteractive}.
