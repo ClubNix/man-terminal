@@ -1,0 +1,127 @@
+\usepackage[french]{babel}
+\usepackage{a4wide}
+%\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\raggedbottom % prevents vertical white space on pages that cannot be filled properly
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,       	% false: boxed links; true: colored links
+	linkcolor=black,          	% color of internal links
+	urlcolor=blue,           	% color of external links
+	citecolor=grey
+}
+
+\usepackage[T1]{fontenc}
+%\usepackage{fourier}
+%\usepackage{utopia}
+%\usepackage{palatino}
+
+\usepackage{lmodern}
+%% ajouter fonte petite capitale grasse à lmodern avec celle de computer modern %%
+\rmfamily
+\DeclareFontShape{T1}{lmr}{b}{sc}{<->ssub*cmr/bx/sc}{}
+\DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*cmr/bx/sc}{}
+%% /ajout %%
+\usepackage{wrapfig}
+
+%\usepackage[a4paper]{geometry} % marges plus petites que a4paper standard
+\usepackage{listings} % insérer code source
+\lstloadlanguages{sh,bash,awk,make}
+%\usepackage{algorithm} % algorithmique
+%\usepackage{algorithmic}
+\usepackage{url}
+\usepackage[usenames, dvipsnames]{color} % couleurs (nombre de base étendu)
+\usepackage{graphicx} % insérer images
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{dirtree}
+\definecolor{grey}{rgb}{0.96,0.96,0.96}
+\definecolor{grey2}{rgb}{0.3,0.3,0.3}
+
+%% Define listings params %%
+\lstset{
+%	numbers=left,
+	language=bash,
+	tabsize=4,
+	frame=single, % cadre autour du code
+	breaklines=true, % autorise couper ligne trop longue
+	basicstyle=\small\ttfamily,
+	numberstyle=\scriptsize\ttfamily,
+	backgroundcolor=\color{grey},
+	showstringspaces=false,
+	keywordstyle=\color{OliveGreen},
+	stringstyle=\color{BrickRed},
+	commentstyle=\color{grey2}\it,
+	stepnumber=1 % numérote toute les x lignes
+}
+% listing utf8 fr %
+\lstset{%
+	inputencoding=utf8,
+	extendedchars=true,
+	literate=
+		{é}{{\'{e}}}1
+		{è}{{\`{e}}}1
+		{ê}{{\^{e}}}1
+		{ë}{{\¨{e}}}1
+		{û}{{\^{u}}}1
+		{ù}{{\`{u}}}1
+		{â}{{\^{a}}}1
+		{à}{{\`{a}}}1
+		{î}{{\^{i}}}1
+		{ç}{{\c{c}}}1
+		{Ç}{{\c{C}}}1
+		{É}{{\'{E}}}1
+		{Ê}{{\^{E}}}1
+		{À}{{\`{A}}}1
+		{Â}{{\^{A}}}1
+		{Î}{{\^{I}}}1
+}
+%% /Define listings params %%
+
+%% Francisation des algorithmes
+%\renewcommand{\algorithmicrequire} {\textbf{\textsc{Entrées:}}}
+%\renewcommand{\algorithmicensure}  {\textbf{\textsc{Sorties:}}}
+%\renewcommand{\algorithmicwhile}   {\textbf{tant que}}
+%\renewcommand{\algorithmicdo}      {\textbf{faire}}
+%\renewcommand{\algorithmicendwhile}{\textbf{fin tant que}}
+%\renewcommand{\algorithmicend}     {\textbf{fin}}
+%\renewcommand{\algorithmicif}      {\textbf{si}}
+%\renewcommand{\algorithmicendif}   {\textbf{fin si}}
+%\renewcommand{\algorithmicelse}    {\textbf{sinon}}
+%\renewcommand{\algorithmicthen}    {\textbf{alors}}
+%\renewcommand{\algorithmicfor}     {\textbf{pour}}
+%\renewcommand{\algorithmicforall}  {\textbf{pour tout}}
+%\renewcommand{\algorithmicdo}      {\textbf{faire}}
+%\renewcommand{\algorithmicendfor}  {\textbf{fin pour}}
+%\renewcommand{\algorithmicloop}    {\textbf{boucler}}
+%\renewcommand{\algorithmicendloop} {\textbf{fin boucle}}
+%\renewcommand{\algorithmicrepeat}  {\textbf{répéter}}
+%\renewcommand{\algorithmicuntil}   {\textbf{jusqu'à}}
+%\renewcommand{\algorithmiccomment} {\STATE //}
+%\newcommand{\BEGIN}{\STATE \fbox{Début}}
+%\newcommand{\END}{\STATE \fbox{Fin}}
+%\floatname{algorithm}{Algorithme}
+%% /francisation des algorithmes
+
+\renewcommand{\qedsymbol}{}
+
+\addto\captionsfrench{%
+	\renewcommand{\partname}[1]%
+	{Partie #1}%
+}
+
+%\renewcommand{\part}[1]{%
+	%\addcontentsline{toc}{part}{#1}
+	%{\Huge\bfseries#1}
+%}
+
+\newcommand{\petit}[1]{
+	\medskip \noindent
+	\begin{small}
+	#1)
+	\end{small}
+}

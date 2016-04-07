@@ -1,0 +1,121 @@
+\part{Chemins (naviguer dans les dossiers)}
+
+\paragraph{} Un chemin, ou chemin d'accès (\emph{path} en anglais) représente
+tout simplement la position d'un fichier ou d'un dossier dans le système. Sous
+GNU/Linux, les chemins sont séparés par des barres obliques orientés vers la
+droite: ``\texttt{/}''.  Cela explique le fait que ce caractère soit interdit
+dans les noms de fichiers et dossiers sous GNU/Linux.
+
+\paragraph{Exemples:}
+
+\begin{itemize}
+	\item \texttt{/home/nom-d-utilisateur/Documents/Bla.pdf}
+	\item \texttt{Musique/thing.mp3}
+	\item \texttt{\~{}/Images/wallpaper.png}
+	\item \texttt{../man-terminal.pdf}
+\end{itemize}
+
+\section{Chemins absolus}
+
+\paragraph{} Les chemins absolus sont des chemins qui prennent comme point de
+départ la racine du système (\emph{root} en anglais) dont tout les fichiers et
+dossiers sont des descendants. Un chemin relatif commencera toujours par un
+\emph{slash} (``\texttt{/}'').
+
+\paragraph{} Ainsi, \texttt{/home/nom-d-utilisateur/Documents/Bla.pdf}
+représente le fichier \texttt{Bla.pdf} qui est situé dans le dossier
+\texttt{Documents}, lui-même étant dans le dossier \texttt{nom-d-utilisateur},
+lui-même contenu dans le dossier \texttt{home} qui est un descendant direct du
+dossier racine. Cela donne donc (en omettant les autres dossiers et fichiers):
+\\
+\dirtree{%
+	.1 / (root).
+		.2 home.
+			.3 nom-d-utilisateur.
+				.4 Documents.
+					.5 Bla.pdf.
+}
+
+\section{Chemins relatifs}
+
+\paragraph{} Les chemins relatifs, à la différence des chemins absolus,
+prennent en compte le dossiers dans lequel on est. Ainsi, un chemin relatif ne
+mènera pas au même fichier selon où l'on est. Ces types de chemins sont très
+utiles pour les fainéants qui ne veulent pas tout re-taper depuis le dossier
+racine. Les chemins relatifs ne commencent pas par un \emph{slash}.
+
+\paragraph{} Par exemple, \texttt{Musique/thing.mp3} représente le fichier
+\texttt{thing.mp3} qui est dans le dossier \texttt{Musique} lui même qui est
+dans le dossier actuel. En supposant que le dossier actuel soit le dossier
+personnel (\texttt{/home/nom-d-utilisateur}), cela nous donne:
+\\
+\dirtree{%
+	.1 / (root).
+		.2 home.
+			.3 nom-d-utilisateur (dossier actuel).
+				.4 Musique.
+					.5 thing.mp3.
+}
+
+\section{Chemins spéciaux}
+
+\paragraph{} Parmis les chemins sous GNU/Linux, il y a quelques chemins
+spéciaux:
+
+\begin{itemize}
+	\item ``\texttt{\~}'' correspond au dossier personnel
+		(\texttt{/home/nom-d-utilisateur}), ainsi
+	\item ``\texttt{.}'' correspond au dossier actuel\\
+	\item ``\texttt{..}'' correspond au dossier parent\\
+\end{itemize}
+
+\paragraph{Exemples:}~\\
+
+\begin{tabular}{|l|l|}
+	\hline
+	\textbf{Chemin} & \textbf{Équivalence}\\
+	\hline
+	\texttt{$\sim$/Musique} & \texttt{/home/nom-d-utilisateur/Musique}\\
+	\hline
+	\texttt{Documents/./texte.txt} & \texttt{Documents/texte.txt}\\
+	\hline
+	\texttt{Documents/../Téléchargements/cat.gif} & \texttt{Téléchargements/cat.gif}\\
+	\hline
+\end{tabular}
+
+\section{Caractères spéciaux}
+
+\paragraph{} Sous GNU/Linux, le seul caractère présent sur le clavier non
+autorisé dans les noms de fichiers et dossiers est le \emph{slash}. Cependant
+il existe d'autres caractères spéciaux pour le shell qui devront être
+\emph{échappés}, ce qui veut dire qu'il devront être précédés d'un
+\emph{antislash} (``\texttt{\textbackslash}''). Les plus utilisés sont:
+
+\begin{itemize}
+	\item \textvisiblespace~(l'espace)
+	\item \texttt{"}
+	\item \texttt{'}
+	\item \texttt{!}
+	\item \texttt{\#}
+	\item \texttt{\$}
+	\item \texttt{(}, \texttt{)}, \texttt{[}, \texttt{]}, \texttt{\{}, \texttt{\}}
+\end{itemize}
+
+\paragraph{} Donc si un fichier s'appelle \texttt{Un nom trè\$ embêtant (mais
+peu probable)}, on devra écrire dans le \emph{prompt}:
+\texttt{Un\textbackslash{\textvisiblespace}nom\textbackslash{\textvisiblespace}trè\textbackslash\$\textbackslash\textvisiblespace
+	embêtant\textbackslash{\textvisiblespace}\textbackslash(mais\textbackslash{\textvisiblespace}peu\textbackslash\textvisiblespace
+probable\textbackslash)}.
+
+\paragraph{} Un moyen d'éviter ceci est de mettre des guillemets (simples ou
+doubles) autour. Prenez garde tout de même car le symbole du dollar doit
+quand-même être échappé si l'on met des guillemets doubles. Pour notre exemple,
+cela donne:
+\\
+\begin{itemize}
+	\item \texttt{"Un nom trè\textbackslash\$ embêtant (mais peu probable)"}\\
+	ou
+	\item \texttt{'Un nom trè\$ embêtant (mais peu probable)'}
+\end{itemize}
+
+\newpage

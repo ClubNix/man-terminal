@@ -1,0 +1,100 @@
+\part{Commandes Basiques}
+
+\section{Raccourcis utiles}
+
+\begin{description}
+	\item[Entrée]: le plus important, lance votre commande
+	\item[Flêche haut]: naviguer dans l'historique des commandes. Vous pourrez
+		ainsi gagner du temps et éviter de toujours retaper la même chose.
+	\item[Tab]: touche de complétion. Vous permet de taper les quelques
+		premières lettres de votre commande, puis la compléter en appuyant sur
+		la touche de tabulation. Si rien ne s'affiche la première fois que vous
+		appuyez sur la touche, c'est qu'il existe plusieurs possibilités de
+		complétion. Une seconde pression vous permettra d'afficher toutes les
+		complétions possibles.
+	% TODO: move that to job control section
+	% \item[Ctrl + Z]: pause la commande en cours.
+	\item[Ctrl + C]: arrête la commande en cours et recommence avec une
+		nouvelle ligne. Très utile si vous voulez annuler l'exécution d'un
+		programme qui boucle de manière infinie, ou si vous vous rendez compte
+		que vous êtes en train d'écrire n'importe quoi.
+	\item[Ctrl+L]: nettoie l'écran.
+	\item[Ctrl+Shift+C]: Copie le texte sélectionné dans le presse-papier.
+	\item[Ctrl+Shift+V]: Colle le texte contenu dans le presse-papier.
+	\item[Ctrl+Z]: Mets la commande en pause. On expliquera plus tard le
+		fonctionnement. Au cas où vous appuyez sur \textbf{Ctrl+Z} par
+		inadvertance, sachez que pour la reprendre, il faut taper la commande
+		\texttt{fg}.
+\end{description}
+
+\section{Liste de commandes (formulaire)}
+
+\paragraph{} Voici donc la liste des commandes qui seront abordées plus en
+détail par la suite.
+
+\begin{description}
+\item[man]: \emph{reference \textbf{man}uals} affiche un manuel sur une
+	commande, une fonction, ou une bibliothèque.
+
+  \begin{lstlisting}
+# Manuel d'utilisation de la command man
+man man
+  \end{lstlisting}
+
+\item[cat]: \emph{con\textbf{cat}enate files} affiche un ou plusieurs fichiers
+	sur le terminal.
+
+  \begin{lstlisting}
+cat plop.txt
+  \end{lstlisting}
+
+\item[ls]: \emph{\textbf{l}i\textbf{s}t directory contents} permet d'afficher
+	le contenu d'un répertoire.
+
+  \begin{lstlisting}
+ls
+  \end{lstlisting}
+
+\item[cd]: \emph{\textbf{c}hange \textbf{d}irectory} permet de naviguer à
+	travers les répertoires.
+
+  \begin{lstlisting}
+cd /usr/src/linux
+  \end{lstlisting}
+
+\item[cp]: \emph{\textbf{c}o\textbf{p}y files} copie un fichier ou un dossier.
+
+  \begin{lstlisting}
+# Pour un fichier
+cp /tmp/plop.txt /home/nom-d-utilisateur/
+  \end{lstlisting}
+%# Pour un  répertoire
+%cp -r /tmp/foo /home/nom-d-utilisateur
+  %\end{lstlisting}
+
+\item[mv]: \emph{\textbf{m}o\textbf{v}e file} déplace un fichier ou un dossier.
+
+  \begin{lstlisting}
+mv /tmp/foo /home/nom-d-utilisateur
+  \end{lstlisting}
+
+\item[./<exec>]: lance le script/programme \emph{<exec>} qui se trouve dans le
+	dossier actuel.
+
+  \begin{lstlisting}
+# Pour lancer a.out
+./a.out
+  \end{lstlisting}
+
+\end{description}
+
+\section{Détails des commandes}
+\input{src/Command/Debutant/man.tex}
+\input{src/Command/Debutant/cat.tex}
+\input{src/Command/Debutant/ls.tex}
+\input{src/Command/Debutant/cd.tex}
+\input{src/Command/Debutant/cp.tex}
+\input{src/Command/Debutant/mv.tex}
+\input{src/Command/Debutant/exec.tex}
+
+\vspace{7em}
