@@ -3,6 +3,12 @@ man-terminal
 
 Manuel d'initiation à la console
 
+Pour compiler:
+
+```sh
+latexmk -pdf intro_commandes.tex
+```
+
 License
 -------
 
